@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Wave - Laboratorio Electrónico & Desarrollo Web</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Orbitron & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            synth: {
+              bg: '#080a0f',
+              card: '#0f131c',
+              border: '#1b2234',
+              gold: '#ffd159',
+              goldGlow: 'rgba(255, 209, 89, 0.4)',
+              wave: '#4ef2bb',
+              waveGlow: 'rgba(78, 242, 187, 0.35)',
+              blue: '#3b82f6',
+              joomla: '#f89406',
+              wp: '#0073aa'
+            }
+          },
+          fontFamily: {
+            tech: ['Orbitron', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080a0f;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(78, 242, 187, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(78, 242, 187, 0.04) 1px, transparent 1px);
+    }
+
+    .glow-gold {
+      filter: drop-shadow(0 0 10px rgba(255, 209, 89, 0.65));
+    }
+    .glow-wave {
+      filter: drop-shadow(0 0 12px rgba(78, 242, 187, 0.5));
+    }
+    .text-glow-gold {
+      text-shadow: 0 0 14px rgba(255, 209, 89, 0.5);
+    }
+    .text-glow-wave {
+      text-shadow: 0 0 14px rgba(78, 242, 187, 0.5);
+    }
+
+    /* Radar pulse animation */
+    @keyframes ping-slow {
+      0% { transform: scale(1); opacity: 0.8; }
+      80%, 100% { transform: scale(2.2); opacity: 0; }
+    }
+    .animate-ping-slow {
+      animation: ping-slow 2.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-synth-bg text-slate-200 antialiased selection:bg-synth-wave selection:text-black">
+
+  <!-- Fondo de cuadrícula tecnológica -->
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-synth-wave/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- Barra de Contacto Directo Superior -->
+  <div class="relative z-50 bg-[#06080d] border-b border-synth-border/80 px-4 py-2 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2 text-synth-wave">
+        <span class="inline-block w-2 h-2 rounded-full bg-synth-wave animate-pulse"></span>
+        <span>LABORATORIO ACTIVO // DISPONIBLE PARA NUEVOS PROYECTOS</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://wa.me/541164439517?text=Hola%20New%20Wave,%20solicito%20presupuesto%20para%20un%20proyecto%20web" target="_blank" class="hover:text-synth-gold transition flex items-center gap-1.5">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-synth-wave"></i>
+          +54 11 6443-9517
+        </a>
+        <a href="mailto:newwaveelectronicslab@gmail.com" class="hover:text-synth-gold transition flex items-center gap-1.5 hidden sm:flex">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-synth-gold"></i>
+          newwaveelectronicslab@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación Principal -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-synth-bg/85 border-b border-synth-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO NEW WAVE -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative w-12 h-12 flex items-center justify-center">
+          <svg viewBox="0 0 160 140" class="w-12 h-12 overflow-visible">
+            <ellipse cx="80" cy="55" rx="72" ry="46" fill="none" stroke="#4ef2bb" stroke-width="3" opacity="0.3" class="glow-wave"/>
+            <ellipse cx="80" cy="55" rx="54" ry="34" fill="none" stroke="#4ef2bb" stroke-width="3.5" opacity="0.55" class="glow-wave"/>
+            <ellipse cx="80" cy="55" rx="36" ry="22" fill="none" stroke="#4ef2bb" stroke-width="4" opacity="0.8" class="glow-wave"/>
+            <ellipse cx="80" cy="55" rx="18" ry="11" fill="none" stroke="#4ef2bb" stroke-width="4.5" opacity="1" class="glow-wave"/>
+            <path d="M 28 42 C 40 100, 52 100, 64 42 C 76 100, 88 100, 100 42 C 112 100, 124 100, 134 42" 
+                  fill="none" stroke="#ffd159" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" class="glow-gold"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-baseline tracking-widest font-tech font-bold text-lg sm:text-xl text-white">
+            <span>NEW</span>
+            <span class="text-synth-gold ml-1.5 text-glow-gold">WAVE</span>
+          </div>
+          <div class="font-mono text-[9px] tracking-[0.28em] text-synth-wave uppercase">Electronic Lab</div>
+        </div>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#servicios" class="text-slate-300 hover:text-synth-wave transition">Servicios</a>
+        <a href="#cms" class="text-slate-300 hover:text-synth-wave transition">WordPress & Joomla</a>
+        <a href="#presupuesto" class="text-slate-300 hover:text-synth-wave transition">Cotizar Proyecto</a>
+        <a href="#faq" class="text-slate-300 hover:text-synth-wave transition">Preguntas</a>
+      </nav>
+
+      <!-- Botón Contacto -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/541164439517?text=Hola%20New%20Wave,%20quiero%20solicitar%20un%20presupuesto" target="_blank"
+           class="relative group overflow-hidden px-4 sm:px-5 py-2.5 rounded-lg font-tech text-xs tracking-wider font-bold text-black bg-gradient-to-r from-synth-wave to-synth-gold hover:opacity-95 transition shadow-[0_0_20px_rgba(78,242,187,0.35)] flex items-center gap-2">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>PEDIR PRESUPUESTO</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-16 pb-20 md:pt-24 md:pb-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      
+      <!-- Insignia Tecnológica -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-synth-wave/30 bg-synth-wave/10 text-synth-wave text-xs font-mono mb-8 backdrop-blur-sm">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <span>INGENIERÍA WEB // ALTO RENDIMIENTO & ARQUITECTURA MODERNA</span>
+      </div>
+
+      <!-- Título Principal -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-tech font-extrabold text-white tracking-tight leading-none mb-6">
+        IMPULSA TU NEGOCIO CON <br class="hidden sm:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-synth-wave via-white to-synth-gold text-glow-wave">
+          DESARROLLO WEB
+        </span> PROFESIONAL
+      </h1>
+
+      <p class="max-w-3xl mx-auto text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10">
+        Creamos <span class="text-white font-medium">Landing Pages de alta velocidad</span> (listas para GitHub Pages), sitios web dinámicos a medida, plataformas en <span class="text-synth-wp font-semibold">WordPress</span> y tiendas virtuales robustas en <span class="text-synth-joomla font-semibold">Joomla</span>.
+      </p>
+
+      <!-- CTAs Principales -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#presupuesto" class="w-full sm:w-auto px-8 py-4 rounded-xl font-tech text-sm tracking-wider font-bold text-black bg-synth-gold hover:bg-yellow-400 shadow-[0_0_25px_rgba(255,209,89,0.4)] transition flex items-center justify-center gap-2">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          <span>SOLICITAR PRESUPUESTO PERSONALIZADO</span>
+        </a>
+        <a href="https://wa.me/541164439517?text=Hola%20New%20Wave,%20quisiera%20asesoramiento%20para%20un%20sitio%20web" target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl font-tech text-sm tracking-wider font-semibold text-synth-wave border border-synth-wave/40 bg-synth-wave/5 hover:bg-synth-wave/15 transition flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>CONSULTAR POR WHATSAPP</span>
+        </a>
+      </div>
+
+      <!-- Especificaciones Rápidas -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-10 border-t border-synth-border/80 font-mono text-left">
+        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
+          <div class="text-synth-wave text-xl font-bold font-tech">01 // RÁPIDO</div>
+          <div class="text-xs text-slate-400 mt-1">Carga ultra veloz optimizada para Core Web Vitals.</div>
+        </div>
+        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
+          <div class="text-synth-gold text-xl font-bold font-tech">02 // ADAPTABLE</div>
+          <div class="text-xs text-slate-400 mt-1">Diseño móvil perfecto (Responsive 100%).</div>
+        </div>
+        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
+          <div class="text-synth-wave text-xl font-bold font-tech">03 // GITHUB</div>
+          <div class="text-xs text-slate-400 mt-1">Alojamiento gratuito y seguro con GitHub Pages.</div>
+        </div>
+        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
+          <div class="text-synth-gold text-xl font-bold font-tech">04 // A MEDIDA</div>
+          <div class="text-xs text-slate-400 mt-1">Código limpio sin plantillas genéricas pesadas.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección: Servicios Principales -->
+  <section id="servicios" class="relative z-10 py-20 bg-[#090d14] border-y border-synth-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// CATÁLOGO DE SERVICIOS</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Soluciones de Software & Presencia Digital</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Diseñamos y desarrollamos proyectos digitales pensados para captar clientes y escalar con tu empresa.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Landing Pages -->
+        <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-wave/60 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-synth-wave/10 border border-synth-wave/30 flex items-center justify-center text-synth-wave mb-6 group-hover:scale-110 transition">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Landing Pages & GitHub Pages</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Páginas de aterrizaje de impacto, optimizadas para campañas publicitarias y conversión. Estructura ligera ideal para hospedar a costo $0 en GitHub Pages con dominio propio.
+            </p>
+            <ul class="space-y-2.5 text-xs font-mono text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Código HTML5, Tailwind y JS nativo
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Integración directa a WhatsApp
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Configuración de repositorio Git
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-6 border-t border-synth-border/80">
+            <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-wave hover:text-white flex items-center gap-1.5 transition">
+              SOLICITAR COTIZACIÓN <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Sitios Dinámicos -->
+        <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-gold/60 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-synth-gold/10 border border-synth-gold/30 flex items-center justify-center text-synth-gold mb-6 group-hover:scale-110 transition">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Sitios Web Dinámicos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Sistemas web con bases de datos, inicio de sesión, paneles de administración a medida y lógica personalizada para automatizar la gestión de tu negocio.
+            </p>
+            <ul class="space-y-2.5 text-xs font-mono text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Paneles de control y CRUDs privados
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Conexión con PostgreSQL, MySQL o SQLite
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> APIs RESTful seguras y escalables
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-6 border-t border-synth-border/80">
+            <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-gold hover:text-white flex items-center gap-1.5 transition">
+              SOLICITAR COTIZACIÓN <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Web Apps -->
+        <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-wave/60 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-synth-wave/10 border border-synth-wave/30 flex items-center justify-center text-synth-wave mb-6 group-hover:scale-110 transition">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Aplicaciones Web & PWAs</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Plataformas interactivas que funcionan con fluidez de app nativa en teléfonos y computadoras, con notificaciones, modo sin conexión e interfaces reactivas.
+            </p>
+            <ul class="space-y-2.5 text-xs font-mono text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Instalables sin pasar por tiendas de apps
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Experiencia ultrarrápida (Single Page App)
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Integración con pasarelas de pago
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-6 border-t border-synth-border/80">
+            <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-wave hover:text-white flex items-center gap-1.5 transition">
+              SOLICITAR COTIZACIÓN <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Específica: WordPress & Tiendas Joomla con Logotipos -->
+  <section id="cms" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// GESTORES LÍDERES</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Especialistas en WordPress & Tiendas Joomla</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Si necesitas que tu equipo actualice contenidos sin escribir código o administrar miles de artículos con pasarelas de cobro, implementamos los mejores CMS del mercado.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Bloque WordPress -->
+        <div class="bg-gradient-to-b from-[#0e1626] to-synth-card rounded-2xl p-8 sm:p-10 border border-synth-wp/40 hover:border-synth-wp transition shadow-[0_0_30px_rgba(0,115,170,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-6">
+              <!-- LOGO OFICIAL WORDPRESS VECTORIAL -->
+              <div class="w-16 h-16 rounded-2xl bg-[#0073aa]/10 border border-[#0073aa]/40 p-2.5 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
+                  <circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="6"/>
+                  <path d="M 50 10 C 27.9 10 10 27.9 10 50 C 10 65.2 18.5 78.4 31 85.1 L 18 49.3 C 18 49.3 22 49.1 22 46.5 C 22 44.5 19.5 44.4 19.5 44.4 L 33.6 44.4 C 33.6 44.4 31.1 44.5 31.1 46.5 C 31.1 49.1 35.1 49.3 35.1 49.3 L 42.4 69.4 L 48.6 52.8 L 44.2 40.7 C 44.2 40.7 42.2 40.6 42.2 38.6 C 42.2 36.6 45.7 36.5 45.7 36.5 L 56.6 36.5 C 56.6 36.5 54.6 36.6 54.6 38.6 C 54.6 40.6 52.6 40.7 52.6 40.7 L 59.8 60.5 L 64.9 46.5 C 64.9 44.5 62.4 44.4 62.4 44.4 L 74.8 44.4 C 74.8 44.4 72.3 44.5 72.3 46.5 C 72.3 49.1 76.3 49.3 76.3 49.3 L 68.8 70 L 73.1 82.8 C 83.5 75.3 90 63.4 90 50 C 90 27.9 72.1 10 50 10 Z" fill="#38bdf8"/>
+                </svg>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/30">CMS #1 MUNDIAL</span>
+            </div>
+
+            <h3 class="text-2xl font-tech font-bold text-white mb-3">Creación de Páginas con WordPress</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Desarrollamos sitios corporativos, blogs y páginas institucionales autogestionables en WordPress. Optimizamos el código para que no sea una plantilla pesada y lenta, garantizando seguridad y facilidad de uso.
+            </p>
+
+            <div class="space-y-3 font-mono text-xs text-slate-300">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
+                <span>Panel de control fácil e intuitivo en español para editar textos y fotos</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
+                <span>Optimización SEO On-Page para posicionar en Google</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
+                <span>Plugins de seguridad blindados contra ataques de fuerza bruta</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-synth-border flex items-center justify-between">
+            <span class="text-xs font-mono text-slate-400">Entrega llave en mano con capacitación</span>
+            <a href="#presupuesto" class="px-4 py-2 rounded-lg font-tech text-xs tracking-wider font-bold bg-sky-500 hover:bg-sky-400 text-black transition">
+              PEDIR PRESUPUESTO WP
+            </a>
+          </div>
+        </div>
+
+        <!-- Bloque Joomla Tiendas Virtuales -->
+        <div class="bg-gradient-to-b from-[#241708] to-synth-card rounded-2xl p-8 sm:p-10 border border-synth-joomla/40 hover:border-synth-joomla transition shadow-[0_0_30px_rgba(248,148,6,0.15)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-6">
+              <!-- LOGO OFICIAL JOOMLA VECTORIAL -->
+              <div class="w-16 h-16 rounded-2xl bg-[#f89406]/10 border border-[#f89406]/40 p-2.5 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <path d="M 44 26 C 41 26 38 28 38 31 C 38 34 40 36 43 36 C 47 36 49 39 49 43 C 49 46 47 49 43 49 C 40 49 38 51 38 54 C 38 57 41 59 44 59 C 53 59 60 52 60 43 C 60 34 53 26 44 26 Z" fill="#f89406"/>
+                  <circle cx="28" cy="40" r="9" fill="#1da1f2"/>
+                  <circle cx="68" cy="35" r="9" fill="#46b450"/>
+                  <circle cx="62" cy="70" r="9" fill="#dc3545"/>
+                  <circle cx="28" cy="65" r="9" fill="#ffb400"/>
+                </svg>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-mono border border-amber-500/30">E-COMMERCE POTENTE</span>
+            </div>
+
+            <h3 class="text-2xl font-tech font-bold text-white mb-3">Tiendas Virtuales con Joomla</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Creamos tiendas online potentes con Joomla + VirtueMart o J2Store. Ideales para catálogos con miles de productos, múltiples monedas, gestión de stock y ventas seguras sin pagar comisiones mensuales fijas.
+            </p>
+
+            <div class="space-y-3 font-mono text-xs text-slate-300">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
+                <span>Integración con pasarelas de pago (Mercado Pago, Stripe, PayPal)</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
+                <span>Gestor avanzado de inventario, atributos de producto y variantes</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
+                <span>Cálculo automático de costos de envío y facturación</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-synth-border flex items-center justify-between">
+            <span class="text-xs font-mono text-slate-400">Vende 24/7 en internet</span>
+            <a href="#presupuesto" class="px-4 py-2 rounded-lg font-tech text-xs tracking-wider font-bold bg-amber-500 hover:bg-amber-400 text-black transition">
+              PEDIR PRESUPUESTO JOOMLA
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO INTERACTIVO: ASISTENTE DE SOLICITUD DE PRESUPUESTO (SIN PRECIOS) -->
+  <section id="presupuesto" class="relative z-10 py-20 bg-[#07090f] border-t border-synth-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// SOLICITUD DIRECTA</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Configura tu Proyecto y Solicita Presupuesto</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          Elige qué necesitas para tu proyecto. Cada trabajo es único y confeccionamos una propuesta personalizada según tus necesidades.
+        </p>
+      </div>
+
+      <div class="bg-synth-card border border-synth-border rounded-3xl p-6 sm:p-10 shadow-2xl">
+        
+        <!-- Paso 1: Tipo de Proyecto Principal -->
+        <div class="mb-10">
+          <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-synth-wave text-black flex items-center justify-center text-xs font-mono font-bold">1</span>
+            ¿Qué tipo de solución necesitas?
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="project-options">
+            
+            <label class="cursor-pointer border border-synth-wave bg-synth-wave/10 rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Landing Page para GitHub Pages">
+              <input type="radio" name="project_type" value="Landing Page para GitHub Pages" class="hidden" checked>
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Landing Page</span>
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Página de aterrizaje optimizada para GitHub Pages (Hosting $0).</p>
+            </label>
+
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Sitio Dinámico a Medida">
+              <input type="radio" name="project_type" value="Sitio Dinámico a Medida" class="hidden">
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Sitio Dinámico</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Con base de datos, panel de administración y usuarios.</p>
+            </label>
+
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Sitio Web con WordPress">
+              <input type="radio" name="project_type" value="Sitio Web con WordPress" class="hidden">
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Sitio WordPress</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">CMS autogestionable fácil de actualizar por tu equipo.</p>
+            </label>
+
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Tienda Virtual con Joomla">
+              <input type="radio" name="project_type" value="Tienda Virtual con Joomla" class="hidden">
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Tienda Joomla</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Catálogo masivo de productos, stock y pasarelas de pago.</p>
+            </label>
+
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Aplicación Web / PWA">
+              <input type="radio" name="project_type" value="Aplicación Web / PWA" class="hidden">
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Aplicación Web</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Software web interactivo de alto rendimiento.</p>
+            </label>
+
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Mantenimiento o Rediseño">
+              <input type="radio" name="project_type" value="Mantenimiento o Rediseño" class="hidden">
+              <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
+                <span>Rediseño / Mant.</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Actualización técnica o modernización de web existente.</p>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Paso 2: Funcionalidades Adicionales Requeridas -->
+        <div class="mb-10">
+          <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-synth-gold text-black flex items-center justify-center text-xs font-mono font-bold">2</span>
+            ¿Qué características adicionales necesitas incluir?
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Pasarela de pagos (Mercado Pago / Stripe)" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Cobros Online (Mercado Pago / Tarjetas)</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Formulario y botón directo a WhatsApp" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
+              <span class="text-xs font-medium text-slate-300">Botón flotante e integración a WhatsApp</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Despliegue y configuración en GitHub Pages" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
+              <span class="text-xs font-medium text-slate-300">Alojamiento en GitHub Pages</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Optimización SEO y Posicionamiento" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Optimización SEO en Google</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Diseño y Rediseño de Logotipo / Identidad" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Diseño o Vectorización de Logo</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
+              <input type="checkbox" value="Dominio personalizado (.com / .com.ar)" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Configuración de Dominio Propio</span>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Paso 3: Resumen y Envío Inmediato -->
+        <div class="bg-[#0b0e17] rounded-2xl p-6 border border-synth-wave/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="w-full md:w-2/3">
+            <div class="text-xs font-mono text-synth-wave mb-1">// RESUMEN DE TU SOLICITUD</div>
+            <div class="text-white font-tech font-bold text-base" id="summary-type">Landing Page para GitHub Pages</div>
+            <div class="text-slate-400 text-xs mt-1" id="summary-features">Incluye botón de WhatsApp y configuración en GitHub Pages</div>
+          </div>
+          <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+            <button id="send-whatsapp-quote" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-tech text-xs tracking-wider font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+              <span>PEDIR POR WHATSAPP</span>
+            </button>
+            <a href="#contacto" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-tech text-xs tracking-wider font-semibold text-synth-gold border border-synth-gold/40 hover:bg-synth-gold/10 transition flex items-center justify-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>POR EMAIL</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section id="contacto" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Información de Contacto -->
+        <div>
+          <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// CANALES OFICIALES</div>
+          <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white mb-6">Iniciemos tu Proyecto Hoy Mismo</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-8">
+            Ponte en contacto con nuestro laboratorio digital. Respondemos a la brevedad con un asesoramiento técnico claro y una estimación de tiempos y presupuesto adaptada a tus metas.
+          </p>
+
+          <div class="space-y-4">
+            
+            <a href="https://wa.me/541164439517?text=Hola%20New%20Wave,%20solicito%20presupuesto" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-synth-border bg-synth-card hover:border-synth-wave transition group">
+              <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl group-hover:scale-105 transition">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400">Atención Directa por WhatsApp</div>
+                <div class="text-white font-tech font-semibold text-lg">+54 11 6443-9517</div>
+              </div>
+            </a>
+
+            <a href="mailto:newwaveelectronicslab@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-synth-border bg-synth-card hover:border-synth-gold transition group">
+              <div class="w-12 h-12 rounded-lg bg-synth-gold/10 text-synth-gold flex items-center justify-center font-bold text-xl group-hover:scale-105 transition">
+                <i data-lucide="mail" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400">Correo Electrónico</div>
+                <div class="text-white font-tech font-semibold text-sm sm:text-base break-all">newwaveelectronicslab@gmail.com</div>
+              </div>
+            </a>
+
+            <div class="p-4 rounded-xl border border-synth-border bg-synth-card flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg bg-synth-wave/10 text-synth-wave flex items-center justify-center font-bold text-xl">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400">Alcance de Servicios</div>
+                <div class="text-white font-tech font-semibold text-base">Buenos Aires, Argentina (Servicio Global Remoto)</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Formulario de Mensaje -->
+        <div class="bg-synth-card rounded-2xl p-6 sm:p-8 border border-synth-border relative shadow-2xl">
+          <h3 class="text-xl font-tech font-bold text-white mb-2">Envíanos un Mensaje</h3>
+          <p class="text-xs text-slate-400 font-mono mb-6">Completa tus datos y te enviaremos la propuesta técnica.</p>
+
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Nombre y Apellido / Empresa</label>
+              <input type="text" id="form-name" required placeholder="Ej: Lucas Martínez" class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition">
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Tu Teléfono o WhatsApp</label>
+              <input type="tel" id="form-phone" placeholder="Ej: +54 9 11 ..." class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition">
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Detalles de tu idea o consulta</label>
+              <textarea id="form-msg" rows="4" required placeholder="Cuéntanos brevemente qué necesitas para tu sitio o sistema..." class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl font-tech text-xs tracking-wider font-bold text-black bg-gradient-to-r from-synth-wave to-synth-gold hover:opacity-90 transition flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>TRANSMITIR CONSULTA POR WHATSAPP</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección FAQ -->
+  <section id="faq" class="relative z-10 py-16 bg-[#090d14] border-t border-synth-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-synth-gold font-mono text-xs uppercase tracking-widest">// RESOLUCIÓN DE DUDAS</div>
+        <h2 class="text-2xl sm:text-3xl font-tech font-bold text-white mt-1">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
+          <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
+            ¿Por qué utilizar GitHub Pages para alojar mi landing page?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
+            GitHub Pages ofrece un servicio de alojamiento gratuito de nivel empresarial, con certificado SSL seguro (HTTPS) incluido, alta tolerancia a picos de tráfico y sin costos mensuales de hosting para páginas estáticas.
+          </p>
+        </details>
+
+        <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
+          <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
+            ¿Cuándo conviene elegir WordPress y cuándo Joomla?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
+            WordPress es insuperable para páginas corporativas dinámicas, portafolios y blogs donde buscas un panel sumamente simple. Joomla con VirtueMart es ideal para tiendas virtuales con estructuras complejas de catálogo y gran volumen de productos sin depender de plataformas de suscripción mensual.
+          </p>
+        </details>
+
+        <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
+          <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
+            ¿Cómo se definen los tiempos de entrega y pagos?
+            <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
+            Una vez definido el alcance en la solicitud de presupuesto, fijamos un cronograma por etapas (anticipo y saldo contra entrega en producción). Las landing pages simples suelen completarse en pocos días.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 bg-[#05070a] border-t border-synth-border py-12 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8">
+          <svg viewBox="0 0 160 140" class="w-full h-full">
+            <ellipse cx="80" cy="55" rx="54" ry="34" fill="none" stroke="#4ef2bb" stroke-width="4" opacity="0.6"/>
+            <path d="M 28 42 C 40 100, 52 100, 64 42 C 76 100, 88 100, 100 42 C 112 100, 124 100, 134 42" fill="none" stroke="#ffd159" stroke-width="8"/>
+          </svg>
+        </div>
+        <span class="font-tech font-bold text-white text-sm">NEW WAVE // ELECTRONIC LAB</span>
+      </div>
+      <div class="font-mono text-xs text-slate-500">
+        &copy; 2026 New Wave Electronic Lab. Todos los derechos reservados.
+      </div>
+      <div class="flex items-center gap-6 font-mono text-xs text-slate-400">
+        <a href="https://wa.me/541164439517" target="_blank" class="hover:text-synth-wave transition">WhatsApp</a>
+        <a href="mailto:newwaveelectronicslab@gmail.com" class="hover:text-synth-gold transition">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante Permanente de WhatsApp -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <div class="relative group">
+      <div class="absolute -inset-1 rounded-full bg-emerald-500 opacity-60 blur-md animate-ping-slow"></div>
+      <a href="https://wa.me/541164439517?text=Hola%20New%20Wave,%20solicito%20presupuesto%20para%20un%20proyecto" 
+         target="_blank" 
+         class="relative flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-black rounded-full shadow-[0_0_20px_rgba(16,185,129,0.5)] transition duration-300 transform hover:scale-110"
+         title="Contactar por WhatsApp">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Inicializar Lucide Icons
+    lucide.createIcons();
+
+    // Lógica del Configurador de Presupuesto
+    const projectCards = document.querySelectorAll('.project-card');
+    const featureCheckboxes = document.querySelectorAll('.feature-checkbox');
+    const summaryType = document.getElementById('summary-type');
+    const summaryFeatures = document.getElementById('summary-features');
+    const sendWhatsappBtn = document.getElementById('send-whatsapp-quote');
+
+    let selectedProject = "Landing Page para GitHub Pages";
+
+    function updateSummary() {
+      summaryType.innerText = selectedProject;
+      
+      const selectedFeatures = [];
+      featureCheckboxes.forEach(cb => {
+        if(cb.checked) selectedFeatures.push(cb.value);
+      });
+
+      if(selectedFeatures.length > 0) {
+        summaryFeatures.innerText = "Adicionales seleccionados: " + selectedFeatures.join(", ");
+      } else {
+        summaryFeatures.innerText = "Sin características adicionales seleccionadas.";
+      }
+    }
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        projectCards.forEach(c => {
+          c.classList.remove('border-synth-wave', 'bg-synth-wave/10');
+          c.classList.add('border-synth-border', 'bg-[#0b0e17]');
+          const icon = c.querySelector('i');
+          if(icon) {
+            icon.setAttribute('data-lucide', 'circle');
+            icon.classList.remove('text-synth-wave');
+            icon.classList.add('text-slate-500');
+          }
+        });
+
+        card.classList.add('border-synth-wave', 'bg-synth-wave/10');
+        card.classList.remove('border-synth-border', 'bg-[#0b0e17]');
+        const activeIcon = card.querySelector('i');
+        if(activeIcon) {
+          activeIcon.setAttribute('data-lucide', 'check-circle');
+          activeIcon.classList.add('text-synth-wave');
+          activeIcon.classList.remove('text-slate-500');
+        }
+
+        const radio = card.querySelector('input[type="radio"]');
+        if(radio) {
+          radio.checked = true;
+          selectedProject = radio.value;
+        }
+        lucide.createIcons();
+        updateSummary();
+      });
+    });
+
+    featureCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateSummary);
+    });
+
+    // Envío por WhatsApp del Presupuesto Configurado
+    sendWhatsappBtn.addEventListener('click', () => {
+      const selectedFeatures = [];
+      featureCheckboxes.forEach(cb => {
+        if(cb.checked) selectedFeatures.push("- " + cb.value);
+      });
+
+      let text = `¡Hola New Wave Electronic Lab! Deseo solicitar un presupuesto personalizado:\n\n`;
+      text += `*Tipo de Proyecto:* ${selectedProject}\n`;
+      if(selectedFeatures.length > 0) {
+        text += `*Características requeridas:*\n${selectedFeatures.join('\n')}\n\n`;
+      }
+      text += `¿Podrían asesorarme con los pasos y tiempos? ¡Gracias!`;
+
+      const url = `https://wa.me/541164439517?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    });
+
+    // Formulario de Contacto Directo
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const msg = document.getElementById('form-msg').value;
+
+      const messageText = `Hola New Wave Electronic Lab, mi nombre es ${name} (Tel: ${phone}).\n\nConsulta: ${msg}`;
+      const url = `https://wa.me/541164439517?text=${encodeURIComponent(messageText)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
