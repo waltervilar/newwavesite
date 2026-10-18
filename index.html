@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Wave - Laboratorio Electr&oacute;nico &amp; Desarrollo Web</title>
+  <title>New Wave Electronic Lab | Consultoría & Desarrollo de Software Corporativo</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -81,35 +81,34 @@
 </head>
 <body class="bg-synth-bg text-slate-200 antialiased selection:bg-synth-wave selection:text-black">
 
-  <!-- Fondo de cuadricula tecnologica -->
+  <!-- Fondo cuadricula -->
   <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-synth-wave/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
 
-  <!-- Barra de Contacto Superior -->
+  <!-- Barra Superior Corporativa -->
   <div class="relative z-50 bg-[#06080d] border-b border-synth-border/80 px-4 py-2 text-xs font-mono">
     <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
       <div class="flex items-center gap-2 text-synth-wave">
         <span class="inline-block w-2 h-2 rounded-full bg-synth-wave animate-pulse"></span>
-        <span>LABORATORIO ACTIVO // DISPONIBLE PARA NUEVOS PROYECTOS</span>
+        <span>DIVISIÓN DE INGENIERÍA // NEW WAVE ELECTRONIC LAB</span>
       </div>
-      <div class="flex items-center gap-5">
-        <a href="https://wa.me/5491164439517?text=Hola%20New%20Wave,%20solicito%20presupuesto" target="_blank" class="hover:text-synth-gold transition flex items-center gap-1.5">
+      <div class="flex items-center gap-6">
+        <span class="text-slate-400 hidden sm:inline flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-synth-wave"></i> Soluciones Cloud & Seguridad SSL
+        </span>
+        <a href="https://wa.me/5491164439517?text=Hola%20New%20Wave,%20solicito%20contacto%20corporativo" target="_blank" class="hover:text-synth-gold transition flex items-center gap-1.5">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-synth-wave"></i>
           +54 9 11 6443-9517
-        </a>
-        <a href="#contacto" class="hover:text-synth-gold transition flex items-center gap-1.5 hidden sm:flex">
-          <i data-lucide="mail" class="w-3.5 h-3.5 text-synth-gold"></i>
-          Formulario de Contacto
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Navegacion Principal -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-synth-bg/85 border-b border-synth-border">
+  <!-- Navegación Principal Corporativa -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-synth-bg/90 border-b border-synth-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- LOGO NEW WAVE -->
+      <!-- LOGO -->
       <a href="#" class="flex items-center gap-3.5 group">
         <div class="relative w-12 h-12 flex items-center justify-center">
           <svg viewBox="0 0 160 140" class="w-12 h-12 overflow-visible">
@@ -131,172 +130,232 @@
       </a>
 
       <!-- Menu Desktop -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#servicios" class="text-slate-300 hover:text-synth-wave transition">Servicios</a>
-        <a href="#cms" class="text-slate-300 hover:text-synth-wave transition">WordPress &amp; Joomla</a>
-        <a href="#presupuesto" class="text-slate-300 hover:text-synth-wave transition">Cotizar Proyecto</a>
-        <a href="#faq" class="text-slate-300 hover:text-synth-wave transition">Preguntas</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="#empresa" class="text-slate-300 hover:text-synth-wave transition">Empresa</a>
+        <a href="#servicios" class="text-slate-300 hover:text-synth-wave transition">Soluciones</a>
+        <a href="#cms" class="text-slate-300 hover:text-synth-wave transition">Ecosistemas Web</a>
+        <a href="#metodologia" class="text-slate-300 hover:text-synth-wave transition">Metodología</a>
+        <a href="#faq" class="text-slate-300 hover:text-synth-wave transition">FAQ</a>
       </nav>
 
-      <!-- Boton Pedir Presupuesto -->
+      <!-- Botón Contacto / Cotizador -->
       <div class="flex items-center gap-3">
         <a href="#presupuesto"
-           class="relative group overflow-hidden px-4 sm:px-5 py-2.5 rounded-lg font-tech text-xs tracking-wider font-bold text-black bg-gradient-to-r from-synth-wave to-synth-gold hover:opacity-95 transition shadow-[0_0_20px_rgba(78,242,187,0.35)] flex items-center gap-2">
-          <i data-lucide="message-square" class="w-4 h-4"></i>
-          <span>PEDIR PRESUPUESTO</span>
+           class="px-5 py-2.5 rounded-lg font-tech text-xs tracking-wider font-bold text-black bg-gradient-to-r from-synth-wave to-synth-gold hover:opacity-95 transition shadow-[0_0_20px_rgba(78,242,187,0.35)] flex items-center gap-2">
+          <i data-lucide="briefcase" class="w-4 h-4"></i>
+          <span>PROPUESTA COMERCIAL</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative z-10 pt-16 pb-20 md:pt-24 md:pb-32 px-4 sm:px-6 lg:px-8">
+  <!-- Hero Section Corporativa -->
+  <section class="relative z-10 pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8">
     <div class="max-w-5xl mx-auto text-center">
       
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-synth-wave/30 bg-synth-wave/10 text-synth-wave text-xs font-mono mb-8 backdrop-blur-sm">
-        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span>INGENIER&Iacute;A WEB // ALTO RENDIMIENTO &amp; ARQUITECTURA MODERNA</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-synth-wave/30 bg-synth-wave/10 text-synth-wave text-xs font-mono mb-8 backdrop-blur-sm">
+        <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+        <span>CONSULTORÍA TECNOLÓGICA & INGENIERÍA DIGITAL EMPRESARIAL</span>
       </div>
 
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-tech font-extrabold text-white tracking-tight leading-none mb-6">
-        IMPULSA TU NEGOCIO CON <br class="hidden sm:inline">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-tech font-extrabold text-white tracking-tight leading-tight mb-6">
+        ARQUITECTURA DIGITAL <br class="hidden sm:inline">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-synth-wave via-white to-synth-gold text-glow-wave">
-          DESARROLLO WEB
-        </span> PROFESIONAL
+          DE ALTO RENDIMIENTO
+        </span> PARA EMPRESAS
       </h1>
 
       <p class="max-w-3xl mx-auto text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10">
-        Creamos <span class="text-white font-medium">Landing Pages y Sitios Web</span> en cualquier infraestructura (GitHub Pages, VPS, Hosting Cloud o cPanel), aplicaciones din&aacute;micas, <span class="text-synth-wave font-medium">Apps para Celulares (Android &amp; iOS)</span>, plataformas en <span class="text-synth-wp font-semibold">WordPress</span> y tiendas virtuales en <span class="text-synth-joomla font-semibold">Joomla</span>.
+        Diseñamos y construimos plataformas corporativas, infraestructuras cloud resilientes, aplicaciones móviles y ecosistemas e-commerce diseñados para escalar operaciones y optimizar conversiones.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#presupuesto" class="w-full sm:w-auto px-8 py-4 rounded-xl font-tech text-sm tracking-wider font-bold text-black bg-synth-gold hover:bg-yellow-400 shadow-[0_0_25px_rgba(255,209,89,0.4)] transition flex items-center justify-center gap-2">
-          <i data-lucide="calculator" class="w-4 h-4"></i>
-          <span>SOLICITAR PRESUPUESTO PERSONALIZADO</span>
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>CONFIGURAR PROYECTO INSTITUCIONAL</span>
         </a>
-        <a href="https://wa.me/5491164439517?text=Hola%20New%20Wave,%20quisiera%20asesoramiento%20para%20un%20sitio%20web" target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl font-tech text-sm tracking-wider font-semibold text-synth-wave border border-synth-wave/40 bg-synth-wave/5 hover:bg-synth-wave/15 transition flex items-center justify-center gap-2">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>CONSULTAR POR WHATSAPP</span>
+        <a href="#empresa" class="w-full sm:w-auto px-7 py-4 rounded-xl font-tech text-sm tracking-wider font-semibold text-synth-wave border border-synth-wave/40 bg-synth-wave/5 hover:bg-synth-wave/15 transition flex items-center justify-center gap-2">
+          <i data-lucide="info" class="w-4 h-4"></i>
+          <span>CONOCER NUESTRA VISIÓN</span>
         </a>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-10 border-t border-synth-border/80 font-mono text-left">
-        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
-          <div class="text-synth-wave text-xl font-bold font-tech">01 // R&Aacute;PIDO</div>
-          <div class="text-xs text-slate-400 mt-1">Carga ultra veloz optimizada para Core Web Vitals.</div>
+      <!-- Métricas Institucionales -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-synth-border/80 font-mono text-left">
+        <div class="bg-synth-card/70 p-5 rounded-xl border border-synth-border">
+          <div class="text-synth-wave text-2xl font-bold font-tech">+99.9%</div>
+          <div class="text-xs text-slate-300 font-semibold mt-1">Disponibilidad & SLA</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Infraestructuras Cloud y Edge.</div>
         </div>
-        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
-          <div class="text-synth-gold text-xl font-bold font-tech">02 // ADAPTABLE</div>
-          <div class="text-xs text-slate-400 mt-1">Dise&ntilde;o m&oacute;vil perfecto (Responsive 100%).</div>
+        <div class="bg-synth-card/70 p-5 rounded-xl border border-synth-border">
+          <div class="text-synth-gold text-2xl font-bold font-tech">&lt; 1.2s</div>
+          <div class="text-xs text-slate-300 font-semibold mt-1">Core Web Vitals</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Velocidad de carga comprobada.</div>
         </div>
-        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
-          <div class="text-synth-wave text-xl font-bold font-tech">03 // HOSTING &amp; CLOUD</div>
-          <div class="text-xs text-slate-400 mt-1">GitHub Pages, VPS, Servidores Cloud o tu propio hosting.</div>
+        <div class="bg-synth-card/70 p-5 rounded-xl border border-synth-border">
+          <div class="text-synth-wave text-2xl font-bold font-tech">Multi-Cloud</div>
+          <div class="text-xs text-slate-300 font-semibold mt-1">Despliegue Flexible</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">AWS, DigitalOcean, VPS o GitHub Pages.</div>
         </div>
-        <div class="bg-synth-card/60 p-4 rounded-lg border border-synth-border">
-          <div class="text-synth-gold text-xl font-bold font-tech">04 // A MEDIDA</div>
-          <div class="text-xs text-slate-400 mt-1">C&oacute;digo limpio sin plantillas gen&eacute;ricas pesadas.</div>
+        <div class="bg-synth-card/70 p-5 rounded-xl border border-synth-border">
+          <div class="text-synth-gold text-2xl font-bold font-tech">100% Auditado</div>
+          <div class="text-xs text-slate-300 font-semibold mt-1">Código Limpio</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Estructura moderna y mantenible.</div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Seccion: Servicios Principales -->
+  <!-- Sección: Sobre la Empresa / Propósito -->
+  <section id="empresa" class="relative z-10 py-20 bg-[#06090e] border-t border-synth-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// IDENTIDAD CORPORATIVA</div>
+          <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white mb-6">
+            Ingeniería de Software con Criterio de Negocio
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+            En <strong>New Wave Electronic Lab</strong> concebimos cada producto digital como una pieza de ingeniería estratégica. No aplicamos soluciones prefabricadas ni plantillas sobrecargadas: diseñamos arquitecturas web y móviles optimizadas para la conversión, la seguridad de datos y la continuidad operativa de tu empresa.
+          </p>
+          <div class="space-y-4 text-sm font-mono">
+            <div class="flex items-start gap-3">
+              <i data-lucide="shield" class="w-5 h-5 text-synth-wave shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white">Estándares de Seguridad y Escalabilidad:</strong>
+                <span class="text-slate-400 block text-xs mt-0.5">Protección de endpoints, certificados SSL y cumplimiento de buenas prácticas de código.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="cpu" class="w-5 h-5 text-synth-gold shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white">Soberanía de Datos e Infraestructura:</strong>
+                <span class="text-slate-400 block text-xs mt-0.5">El cliente conserva la propiedad total del código fuente, repositorios, accesos y hosting.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-synth-card p-6 rounded-2xl border border-synth-border">
+            <div class="w-10 h-10 rounded-lg bg-synth-wave/10 text-synth-wave flex items-center justify-center mb-4">
+              <i data-lucide="target" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-tech font-bold text-white text-base mb-2">Misión</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Equipar a empresas, pymes y emprendimientos con plataformas digitales robustas que aumenten su competitividad y automaticen procesos críticos.
+            </p>
+          </div>
+          <div class="bg-synth-card p-6 rounded-2xl border border-synth-border">
+            <div class="w-10 h-10 rounded-lg bg-synth-gold/10 text-synth-gold flex items-center justify-center mb-4">
+              <i data-lucide="eye" class="w-5 h-5"></i>
+            </div>
+            <h4 class="font-tech font-bold text-white text-base mb-2">Visión</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Consolidarnos como laboratorio tecnológico de referencia regional en desarrollo de software full-stack, arquitecturas ligeras y soluciones cloud.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Catálogo de Soluciones -->
   <section id="servicios" class="relative z-10 py-20 bg-[#090d14] border-y border-synth-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// CAT&Aacute;LOGO DE SERVICIOS</div>
-        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Soluciones de Software &amp; Presencia Digital</h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-3">Dise&ntilde;amos y desarrollamos proyectos digitales pensados para captar clientes y escalar con tu empresa.</p>
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// SOLUCIONES CORPORATIVAS</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Servicios de Software & Transformación Digital</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Módulos de desarrollo adaptables al tamaño y etapa de madurez de cada organización.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Tarjeta 1: Landing Pages -->
+        <!-- Tarjeta 1: Sitios Institucionales -->
         <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-wave/60 transition duration-300 relative group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-synth-wave/10 border border-synth-wave/30 flex items-center justify-center text-synth-wave mb-6 group-hover:scale-110 transition">
               <i data-lucide="globe" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-tech text-xl font-bold text-white mb-3">Landing Pages &amp; Sitios Web</h3>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Sitios Web Institucionales</h3>
             <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              P&aacute;ginas de aterrizaje de alto impacto optimizadas para ventas y conversi&oacute;n. Las alojamos donde prefieras: GitHub Pages ($0 de costo mensual), hosting cPanel cl&aacute;sico o servidores cloud con dominio propio.
+              Portales corporativos y páginas de conversión de alto rendimiento. Despliegues estáticos optimizados con costo cero de servidor o arquitecturas dedicadas con dominio propio.
             </p>
             <ul class="space-y-2.5 text-xs font-mono text-slate-300">
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> C&oacute;digo HTML5, Tailwind y JS ultra liviano
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Carga instantánea y SEO semántico
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Integraci&oacute;n a WhatsApp y formularios
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Formularios encriptados y APIs de contacto
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Alojamiento flexible: GitHub Pages, Cloud o VPS
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Compatibilidad multiplataforma 100%
               </li>
             </ul>
           </div>
           <div class="mt-8 pt-6 border-t border-synth-border/80">
             <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-wave hover:text-white flex items-center gap-1.5 transition">
-              SOLICITAR COTIZACI&Oacute;N <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              SOLICITAR CONSULTORÍA <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
-        <!-- Tarjeta 2: Sitios Dinamicos -->
+        <!-- Tarjeta 2: Sistemas y Web Apps Dinámicas -->
         <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-gold/60 transition duration-300 relative group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-synth-gold/10 border border-synth-gold/30 flex items-center justify-center text-synth-gold mb-6 group-hover:scale-110 transition">
               <i data-lucide="database" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-tech text-xl font-bold text-white mb-3">Sitios Web Din&aacute;micos</h3>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Sistemas & Paneles Web</h3>
             <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Sistemas web con bases de datos, inicio de sesi&oacute;n, paneles de administraci&oacute;n a medida y l&oacute;gica personalizada para automatizar la gesti&oacute;n de tu negocio.
+              Desarrollo de aplicaciones web dinámicas con bases de datos relacionales, paneles de administración (CRUD), autenticación por roles y reportería en tiempo real.
             </p>
             <ul class="space-y-2.5 text-xs font-mono text-slate-300">
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Paneles de control y CRUDs privados
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Paneles de control y gestión interna
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Conexi&oacute;n con PostgreSQL, MySQL o SQLite
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Bases de datos PostgreSQL / MySQL
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> APIs RESTful seguras y escalables
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-gold"></i> Integración con sistemas de terceros y APIs
               </li>
             </ul>
           </div>
           <div class="mt-8 pt-6 border-t border-synth-border/80">
             <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-gold hover:text-white flex items-center gap-1.5 transition">
-              SOLICITAR COTIZACI&Oacute;N <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              SOLICITAR CONSULTORÍA <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
-        <!-- Tarjeta 3: Apps Celulares -->
+        <!-- Tarjeta 3: Aplicaciones Móviles -->
         <div class="bg-synth-card rounded-2xl p-8 border border-synth-border hover:border-synth-wave/60 transition duration-300 relative group flex flex-col justify-between">
           <div>
             <div class="w-12 h-12 rounded-xl bg-synth-wave/10 border border-synth-wave/30 flex items-center justify-center text-synth-wave mb-6 group-hover:scale-110 transition">
               <i data-lucide="smartphone" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-tech text-xl font-bold text-white mb-3">Apps para Celulares (Android &amp; iOS)</h3>
+            <h3 class="font-tech text-xl font-bold text-white mb-3">Soluciones Móviles & PWAs</h3>
             <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              Desarrollo de aplicaciones m&oacute;viles para smartphones y tablets. Creamos apps para Android e iOS, adem&aacute;s de Progressive Web Apps (PWA) instalables con notificaciones push y sincronizaci&oacute;n centralizada.
+              Desarrollo de aplicaciones para Android e iOS, y aplicaciones web progresivas (PWA) instalables que operan offline y sincronizan con servidores centrales.
             </p>
             <ul class="space-y-2.5 text-xs font-mono text-slate-300">
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Apps para Android (APK/Google Play) e iOS
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Notificaciones push y geolocalización
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Notificaciones push, GPS y c&aacute;mara
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Experiencia de usuario nativa fluida
               </li>
               <li class="flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Conexi&oacute;n en tiempo real con base de datos
+                <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i> Publicación y soporte técnico continuo
               </li>
             </ul>
           </div>
           <div class="mt-8 pt-6 border-t border-synth-border/80">
             <a href="#presupuesto" class="text-xs font-tech font-bold text-synth-wave hover:text-white flex items-center gap-1.5 transition">
-              SOLICITAR COTIZACI&Oacute;N <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              SOLICITAR CONSULTORÍA <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
@@ -305,14 +364,14 @@
     </div>
   </section>
 
-  <!-- Seccion CMS: WordPress & Joomla -->
+  <!-- Sección: CMS Corporativos & E-Commerce -->
   <section id="cms" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// GESTORES L&Iacute;DERES</div>
-        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Especialistas en WordPress &amp; Tiendas Joomla</h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-3">Si necesitas que tu equipo actualice contenidos sin escribir c&oacute;digo o administrar miles de art&iacute;culos con pasarelas de cobro, implementamos los mejores CMS del mercado.</p>
+        <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// GESTIÓN EDITORIAL & E-COMMERCE</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Ecosistemas WordPress & Joomla Enterprise</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Para equipos que requieren autonomía operativa con respaldo técnico y de seguridad.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -327,34 +386,34 @@
                   <path d="M 50 10 C 27.9 10 10 27.9 10 50 C 10 65.2 18.5 78.4 31 85.1 L 18 49.3 C 18 49.3 22 49.1 22 46.5 C 22 44.5 19.5 44.4 19.5 44.4 L 33.6 44.4 C 33.6 44.4 31.1 44.5 31.1 46.5 C 31.1 49.1 35.1 49.3 35.1 49.3 L 42.4 69.4 L 48.6 52.8 L 44.2 40.7 C 44.2 40.7 42.2 40.6 42.2 38.6 C 42.2 36.6 45.7 36.5 45.7 36.5 L 56.6 36.5 C 56.6 36.5 54.6 36.6 54.6 38.6 C 54.6 40.6 52.6 40.7 52.6 40.7 L 59.8 60.5 L 64.9 46.5 C 64.9 44.5 62.4 44.4 62.4 44.4 L 74.8 44.4 C 74.8 44.4 72.3 44.5 72.3 46.5 C 72.3 49.1 76.3 49.3 76.3 49.3 L 68.8 70 L 73.1 82.8 C 83.5 75.3 90 63.4 90 50 C 90 27.9 72.1 10 50 10 Z" fill="#38bdf8"/>
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/30">CMS #1 MUNDIAL</span>
+              <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-mono border border-sky-500/30">CMS CORPORATIVO</span>
             </div>
 
-            <h3 class="text-2xl font-tech font-bold text-white mb-3">Creaci&oacute;n de P&aacute;ginas con WordPress</h3>
+            <h3 class="text-2xl font-tech font-bold text-white mb-3">Sitios Autogestionables en WordPress</h3>
             <p class="text-slate-300 text-sm leading-relaxed mb-6">
-              Desarrollamos sitios corporativos, blogs y p&aacute;ginas institucionales autogestionables en WordPress. Optimizamos el c&oacute;digo para que no sea una plantilla pesada y lenta, garantizando seguridad y facilidad de uso.
+              Implementación personalizada sin sobrecarga de plugins. Desarrollamos temas limpios con editor intuitivo para departamentos de marketing y comunicación institucional.
             </p>
 
             <div class="space-y-3 font-mono text-xs text-slate-300">
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
-                <span>Panel f&aacute;cil en espa&ntilde;ol para editar textos e im&aacute;genes</span>
+                <span>Panel centralizado para gestión de noticias y páginas</span>
               </div>
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
-                <span>Optimizaci&oacute;n SEO On-Page para posicionar en Google</span>
+                <span>Arquitectura optimizada para posicionamiento SEO</span>
               </div>
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
-                <span>Blindaje de seguridad contra accesos no autorizados</span>
+                <span>Políticas de respaldo automático y defensa ante ataques</span>
               </div>
             </div>
           </div>
 
           <div class="mt-8 pt-6 border-t border-synth-border flex items-center justify-between">
-            <span class="text-xs font-mono text-slate-400">Entrega llave en mano</span>
+            <span class="text-xs font-mono text-slate-400">Capacitación de personal incluida</span>
             <a href="#presupuesto" class="px-4 py-2 rounded-lg font-tech text-xs tracking-wider font-bold bg-sky-500 hover:bg-sky-400 text-black transition">
-              PEDIR PRESUPUESTO WP
+              EVALUAR PROYECTO WP
             </a>
           </div>
         </div>
@@ -372,34 +431,34 @@
                   <circle cx="28" cy="65" r="9" fill="#ffb400"/>
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-mono border border-amber-500/30">E-COMMERCE POTENTE</span>
+              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-mono border border-amber-500/30">E-COMMERCE ENTERPRISE</span>
             </div>
 
-            <h3 class="text-2xl font-tech font-bold text-white mb-3">Tiendas Virtuales con Joomla</h3>
+            <h3 class="text-2xl font-tech font-bold text-white mb-3">Comercio Electrónico con Joomla</h3>
             <p class="text-slate-300 text-sm leading-relaxed mb-6">
-              Creamos tiendas online potentes con Joomla + VirtueMart o J2Store. Ideales para cat&aacute;logos con miles de productos, m&uacute;ltiples monedas, gesti&oacute;n de stock y ventas seguras sin pagar comisiones mensuales fijas.
+              Plataformas preparadas para catálogos de alto volumen, listas de precios diferenciadas por cliente B2B y automatización de envíos y pagos.
             </p>
 
             <div class="space-y-3 font-mono text-xs text-slate-300">
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
-                <span>Integraci&oacute;n con Mercado Pago, Stripe y PayPal</span>
+                <span>Integración con pasarelas (Mercado Pago, Stripe, bancos)</span>
               </div>
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
-                <span>Gesti&oacute;n de stock, variantes y categor&iacute;as ilimitadas</span>
+                <span>Gestión avanzada de inventarios y tarifas logísticas</span>
               </div>
               <div class="flex items-center gap-2.5">
                 <i data-lucide="check" class="w-4 h-4 text-amber-400"></i>
-                <span>C&aacute;lculo de costos de env&iacute;o y facturaci&oacute;n</span>
+                <span>Cero comisiones mensuales sobre transacciones</span>
               </div>
             </div>
           </div>
 
           <div class="mt-8 pt-6 border-t border-synth-border flex items-center justify-between">
-            <span class="text-xs font-mono text-slate-400">Ventas 24/7</span>
+            <span class="text-xs font-mono text-slate-400">Ventas 24/7 y multi-divisa</span>
             <a href="#presupuesto" class="px-4 py-2 rounded-lg font-tech text-xs tracking-wider font-bold bg-amber-500 hover:bg-amber-400 text-black transition">
-              PEDIR PRESUPUESTO JOOMLA
+              EVALUAR PROYECTO JOOMLA
             </a>
           </div>
         </div>
@@ -408,15 +467,80 @@
     </div>
   </section>
 
-  <!-- ASISTENTE DE SOLICITUD DE PRESUPUESTO -->
+  <!-- Nueva Sección: Metodología de Trabajo Corporativa -->
+  <section id="metodologia" class="relative z-10 py-20 bg-[#070a10] border-t border-synth-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// PROCESO DE ENTREGA</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Metodología de Desarrollo en 4 Fases</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Garantizamos trazabilidad técnica, previsibilidad en plazos y cumplimiento de requerimientos en cada entrega.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 font-mono">
+        <div class="bg-synth-card p-6 rounded-2xl border border-synth-border flex flex-col justify-between">
+          <div>
+            <span class="text-synth-wave text-3xl font-tech font-bold">01</span>
+            <h4 class="text-white font-tech font-semibold text-lg mt-3 mb-2">Relevamiento</h4>
+            <p class="text-xs text-slate-400 leading-relaxed font-sans">
+              Diagnóstico de necesidades técnicas, definición del alcance, selección de tecnologías y cronograma de hitos.
+            </p>
+          </div>
+          <div class="mt-6 text-[11px] text-synth-wave flex items-center gap-1.5">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Especificación de Requisitos
+          </div>
+        </div>
+
+        <div class="bg-synth-card p-6 rounded-2xl border border-synth-border flex flex-col justify-between">
+          <div>
+            <span class="text-synth-gold text-3xl font-tech font-bold">02</span>
+            <h4 class="text-white font-tech font-semibold text-lg mt-3 mb-2">Arquitectura & UX</h4>
+            <p class="text-xs text-slate-400 leading-relaxed font-sans">
+              Modelado de bases de datos, diagramas de flujo y prototipado visual de interfaces centrado en el usuario final.
+            </p>
+          </div>
+          <div class="mt-6 text-[11px] text-synth-gold flex items-center gap-1.5">
+            <i data-lucide="layout" class="w-3.5 h-3.5"></i> Prototipos Funcionales
+          </div>
+        </div>
+
+        <div class="bg-synth-card p-6 rounded-2xl border border-synth-border flex flex-col justify-between">
+          <div>
+            <span class="text-synth-wave text-3xl font-tech font-bold">03</span>
+            <h4 class="text-white font-tech font-semibold text-lg mt-3 mb-2">Desarrollo Ágil</h4>
+            <p class="text-xs text-slate-400 leading-relaxed font-sans">
+              Codificación bajo estándares de calidad, sprints con demostraciones periódicas y control de versiones en GitHub.
+            </p>
+          </div>
+          <div class="mt-6 text-[11px] text-synth-wave flex items-center gap-1.5">
+            <i data-lucide="code" class="w-3.5 h-3.5"></i> Control de Versiones
+          </div>
+        </div>
+
+        <div class="bg-synth-card p-6 rounded-2xl border border-synth-border flex flex-col justify-between">
+          <div>
+            <span class="text-synth-gold text-3xl font-tech font-bold">04</span>
+            <h4 class="text-white font-tech font-semibold text-lg mt-3 mb-2">QA & Despliegue</h4>
+            <p class="text-xs text-slate-400 leading-relaxed font-sans">
+              Pruebas de estrés y seguridad, configuración de dominio/SSL, puesta en producción y entrega de accesos.
+            </p>
+          </div>
+          <div class="mt-6 text-[11px] text-synth-gold flex items-center gap-1.5">
+            <i data-lucide="check-check" class="w-3.5 h-3.5"></i> Pase a Producción
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASISTENTE DE SOLICITUD DE PROPUESTA / PRESUPUESTO -->
   <section id="presupuesto" class="relative z-10 py-20 bg-[#07090f] border-t border-synth-border">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// SOLICITUD DIRECTA</div>
-        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Configura tu Proyecto y Solicita Presupuesto</h2>
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// SOLICITUD DE PROYECTO</div>
+        <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Configura tus Requerimientos</h2>
         <p class="text-slate-400 text-sm sm:text-base mt-2">
-          Elige qu&eacute; necesitas para tu proyecto y generaremos la solicitud para enviarla de inmediato.
+          Selecciona las especificaciones de tu plataforma para elaborar una propuesta técnica y económica formal.
         </p>
       </div>
 
@@ -426,62 +550,62 @@
         <div class="mb-10">
           <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-4 flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-synth-wave text-black flex items-center justify-center text-xs font-mono font-bold">1</span>
-            &iquest;Qu&eacute; tipo de soluci&oacute;n necesitas?
+            Tipo de Solución Tecnológica
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="project-options">
             
-            <label class="cursor-pointer border border-synth-wave bg-synth-wave/10 rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Landing Page / Sitio Web">
-              <input type="radio" name="project_type" value="Landing Page / Sitio Web" class="hidden" checked>
+            <label class="cursor-pointer border border-synth-wave bg-synth-wave/10 rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Portal Web Corporativo">
+              <input type="radio" name="project_type" value="Portal Web Corporativo" class="hidden" checked>
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>Landing Page</span>
+                <span>Portal Corporativo</span>
                 <i data-lucide="check-circle" class="w-4 h-4 text-synth-wave"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">P&aacute;gina de aterrizaje optimizada para GitHub Pages (Hosting $0).</p>
+              <p class="text-xs text-slate-400 mt-2">Presencia institucional optimizada para posicionamiento y leads.</p>
             </label>
 
-            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Sitio Dinamico a Medida">
-              <input type="radio" name="project_type" value="Sitio Dinamico a Medida" class="hidden">
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Sistema Web a Medida">
+              <input type="radio" name="project_type" value="Sistema Web a Medida" class="hidden">
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>Sitio Din&aacute;mico</span>
+                <span>Sistema / Web App</span>
                 <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">Con base de datos, panel de administraci&oacute;n y usuarios.</p>
+              <p class="text-xs text-slate-400 mt-2">Base de datos, panel de administración y procesos de negocio.</p>
             </label>
 
             <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Sitio Web con WordPress">
               <input type="radio" name="project_type" value="Sitio Web con WordPress" class="hidden">
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>Sitio WordPress</span>
+                <span>WordPress Enterprise</span>
                 <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">CMS autogestionable f&aacute;cil de actualizar por tu equipo.</p>
+              <p class="text-xs text-slate-400 mt-2">Gestor autogestionable con máxima seguridad y rapidez.</p>
             </label>
 
-            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Tienda Virtual con Joomla">
-              <input type="radio" name="project_type" value="Tienda Virtual con Joomla" class="hidden">
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="E-Commerce con Joomla">
+              <input type="radio" name="project_type" value="E-Commerce con Joomla" class="hidden">
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>Tienda Joomla</span>
+                <span>E-Commerce Joomla</span>
                 <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">Cat&aacute;logo masivo de productos, stock y pasarelas de pago.</p>
+              <p class="text-xs text-slate-400 mt-2">Catálogos de alta escala con pasarelas de pago y stock.</p>
             </label>
 
-            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="App para Celulares (Android / iOS)">
-              <input type="radio" name="project_type" value="App para Celulares (Android / iOS)" class="hidden">
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Aplicación Móvil (Android / iOS)">
+              <input type="radio" name="project_type" value="Aplicación Móvil (Android / iOS)" class="hidden">
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>App para Celulares</span>
+                <span>App Móvil (iOS / Android)</span>
                 <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">App m&oacute;vil para celulares Android / iPhone / Tablets.</p>
+              <p class="text-xs text-slate-400 mt-2">Aplicación nativa o PWA para smartphones y tablets.</p>
             </label>
 
-            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Mantenimiento o Rediseño">
-              <input type="radio" name="project_type" value="Mantenimiento o Rediseño" class="hidden">
+            <label class="cursor-pointer border border-synth-border bg-[#0b0e17] rounded-xl p-4 flex flex-col justify-between transition hover:border-synth-wave project-card" data-val="Auditoría / Modernización de Software">
+              <input type="radio" name="project_type" value="Auditoría / Modernización de Software" class="hidden">
               <div class="font-tech text-sm font-bold text-white flex items-center justify-between">
-                <span>Redise&ntilde;o / Mant.</span>
+                <span>Modernización / QA</span>
                 <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
               </div>
-              <p class="text-xs text-slate-400 mt-2">Actualizaci&oacute;n t&eacute;cnica o modernizaci&oacute;n de web existente.</p>
+              <p class="text-xs text-slate-400 mt-2">Migración de infraestructura, refactorización y auditoría.</p>
             </label>
 
           </div>
@@ -491,38 +615,38 @@
         <div class="mb-10">
           <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-4 flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-synth-gold text-black flex items-center justify-center text-xs font-mono font-bold">2</span>
-            &iquest;Qu&eacute; caracter&iacute;sticas adicionales necesitas incluir?
+            Módulos e Infraestructura Requerida
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Cobros Online (Mercado Pago / Tarjetas)" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
-              <span class="text-xs font-medium text-slate-300">Cobros Online (Mercado Pago / Tarjetas)</span>
+              <input type="checkbox" value="Integración con Pasarelas de Pago" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Pasarelas de Pago (Mercado Pago / Stripe)</span>
             </label>
 
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Integracion directa a WhatsApp" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
-              <span class="text-xs font-medium text-slate-300">Bot&oacute;n flotante e integraci&oacute;n a WhatsApp</span>
+              <input type="checkbox" value="Integración CRM y WhatsApp" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
+              <span class="text-xs font-medium text-slate-300">Integración con CRM y Canal de WhatsApp</span>
             </label>
 
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Alojamiento (GitHub Pages, Cloud o Hosting)" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
-              <span class="text-xs font-medium text-slate-300">Alojamiento (GitHub Pages, Cloud o Hosting)</span>
+              <input type="checkbox" value="Despliegue Cloud (AWS / VPS / GitHub)" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700" checked>
+              <span class="text-xs font-medium text-slate-300">Infraestructura Cloud / Servidores VPS</span>
             </label>
 
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Optimizacion SEO en Google" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
-              <span class="text-xs font-medium text-slate-300">Optimizaci&oacute;n SEO en Google</span>
+              <input type="checkbox" value="SEO Técnico y Analítica Web" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">SEO Técnico y Analítica Web (Google)</span>
             </label>
 
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Diseno o Vectorizacion de Logo" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
-              <span class="text-xs font-medium text-slate-300">Dise&ntilde;o o Vectorizaci&oacute;n de Logo</span>
+              <input type="checkbox" value="Identidad Visual y Diseño UI" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Manual de Marca y Diseño UI/UX</span>
             </label>
 
             <label class="flex items-center gap-3 p-3.5 rounded-xl border border-synth-border bg-[#0b0e17] hover:border-synth-gold/50 cursor-pointer transition">
-              <input type="checkbox" value="Configuracion de Dominio Propio" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
-              <span class="text-xs font-medium text-slate-300">Configuraci&oacute;n de Dominio Propio</span>
+              <input type="checkbox" value="Configuración de Dominio y Correos Corporativos" class="feature-checkbox w-4 h-4 rounded text-synth-gold focus:ring-0 bg-slate-900 border-slate-700">
+              <span class="text-xs font-medium text-slate-300">Dominio Propio y Correos Corporativos</span>
             </label>
 
           </div>
@@ -531,18 +655,18 @@
         <!-- Paso 3: Resumen -->
         <div class="bg-[#0b0e17] rounded-2xl p-6 border border-synth-wave/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="w-full md:w-2/3">
-            <div class="text-xs font-mono text-synth-wave mb-1">// RESUMEN DE TU SOLICITUD</div>
-            <div class="text-white font-tech font-bold text-base" id="summary-type">Landing Page / Sitio Web</div>
-            <div class="text-slate-400 text-xs mt-1" id="summary-features">Incluye boton de WhatsApp y alojamiento</div>
+            <div class="text-xs font-mono text-synth-wave mb-1">// RESUMEN DE LA SOLICITUD</div>
+            <div class="text-white font-tech font-bold text-base" id="summary-type">Portal Web Corporativo</div>
+            <div class="text-slate-400 text-xs mt-1" id="summary-features">Incluye integraciones seleccionadas.</div>
           </div>
           <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
             <button id="send-whatsapp-quote" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-tech text-xs tracking-wider font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2">
               <i data-lucide="message-square" class="w-4 h-4"></i>
-              <span>PEDIR POR WHATSAPP</span>
+              <span>SOLICITAR POR WHATSAPP</span>
             </button>
             <a href="#contacto" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-tech text-xs tracking-wider font-semibold text-synth-gold border border-synth-gold/40 hover:bg-synth-gold/10 transition flex items-center justify-center gap-2">
               <i data-lucide="mail" class="w-4 h-4"></i>
-              <span>IR AL FORMULARIO</span>
+              <span>FORMULARIO FORMAL</span>
             </a>
           </div>
         </div>
@@ -552,7 +676,7 @@
     </div>
   </section>
 
-  <!-- Seccion de Contacto -->
+  <!-- Sección de Contacto Corporativo -->
   <section id="contacto" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
       
@@ -560,32 +684,31 @@
         
         <!-- Canales Oficiales -->
         <div>
-          <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// CANALES OFICIALES</div>
-          <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white mb-6">Iniciemos tu Proyecto Hoy Mismo</h2>
+          <div class="text-synth-wave font-mono text-xs tracking-widest uppercase mb-2">// RELACIONES CORPORATIVAS</div>
+          <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white mb-6">Canales Directos de Atención</h2>
           <p class="text-slate-400 text-sm leading-relaxed mb-8">
-            Ponte en contacto con nuestro laboratorio digital. Respondemos a la brevedad con un asesoramiento t&eacute;cnico claro y una estimaci&oacute;n de tiempos y presupuesto adaptada a tus metas.
+            Nuestro equipo de ingeniería evalúa cada propuesta técnica con confidencialidad. Contáctanos para coordinar una reunión de diagnóstico o recibir un presupuesto formal.
           </p>
 
           <div class="space-y-4">
             
-            <a href="https://wa.me/5491164439517?text=Hola%20New%20Wave,%20solicito%20presupuesto" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-synth-border bg-synth-card hover:border-synth-wave transition group">
+            <a href="https://wa.me/5491164439517?text=Hola%20New%20Wave,%20solicito%20contacto%20corporativo" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-synth-border bg-synth-card hover:border-synth-wave transition group">
               <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl group-hover:scale-105 transition">
                 <i data-lucide="message-circle" class="w-6 h-6"></i>
               </div>
               <div>
-                <div class="text-xs font-mono text-slate-400">Atenci&oacute;n Directa por WhatsApp</div>
+                <div class="text-xs font-mono text-slate-400">Atención Directa & WhatsApp</div>
                 <div class="text-white font-tech font-semibold text-lg">+54 9 11 6443-9517</div>
               </div>
             </a>
 
-            <!-- Tarjeta que lleva directo al formulario sin exponer la direccion publica -->
             <a href="#contacto-form-box" onclick="document.getElementById('form-name').focus();" class="flex items-center gap-4 p-4 rounded-xl border border-synth-border bg-synth-card hover:border-synth-gold transition group">
               <div class="w-12 h-12 rounded-lg bg-synth-gold/10 text-synth-gold flex items-center justify-center font-bold text-xl group-hover:scale-105 transition">
                 <i data-lucide="mail" class="w-6 h-6"></i>
               </div>
               <div>
-                <div class="text-xs font-mono text-slate-400">Mensaje por Correo Electr&oacute;nico</div>
-                <div class="text-white font-tech font-semibold text-sm sm:text-base text-synth-gold">Abrir Formulario de Contacto &darr;</div>
+                <div class="text-xs font-mono text-slate-400">Mesa de Entrada Digital</div>
+                <div class="text-white font-tech font-semibold text-sm sm:text-base text-synth-gold">Completar formulario de consulta &darr;</div>
               </div>
             </a>
 
@@ -594,33 +717,33 @@
                 <i data-lucide="map-pin" class="w-6 h-6"></i>
               </div>
               <div>
-                <div class="text-xs font-mono text-slate-400">Alcance de Servicios</div>
-                <div class="text-white font-tech font-semibold text-base">Buenos Aires, Argentina (Servicio Global Remoto)</div>
+                <div class="text-xs font-mono text-slate-400">Sede & Operaciones</div>
+                <div class="text-white font-tech font-semibold text-base">Buenos Aires, Argentina (Atención Remota Global)</div>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- Formulario con opciones directas de envio -->
+        <!-- Formulario Formal -->
         <div id="contacto-form-box" class="bg-synth-card rounded-2xl p-6 sm:p-8 border border-synth-border relative shadow-2xl">
-          <h3 class="text-xl font-tech font-bold text-white mb-2">Env&iacute;anos un Mensaje</h3>
-          <p class="text-xs text-slate-400 font-mono mb-6">Completa tus datos para enviarnos tu solicitud t&eacute;cnica.</p>
+          <h3 class="text-xl font-tech font-bold text-white mb-2">Mesa de Entrada de Proyectos</h3>
+          <p class="text-xs text-slate-400 font-mono mb-6">Detalla tu requerimiento para contactarte con un especialista.</p>
 
           <form id="contact-form" class="space-y-4">
             <div>
-              <label class="block text-xs font-mono text-slate-300 mb-1">Nombre y Apellido / Empresa</label>
-              <input type="text" id="form-name" required placeholder="Ej: Lucas Mart&iacute;nez" class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition">
+              <label class="block text-xs font-mono text-slate-300 mb-1">Nombre y Apellido / Organización</label>
+              <input type="text" id="form-name" required placeholder="Ej: Ing. Martín Gómez (Empresa SA)" class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition">
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-slate-300 mb-1">Tu Tel&eacute;fono o WhatsApp</label>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Teléfono o WhatsApp de Contacto</label>
               <input type="tel" id="form-phone" placeholder="Ej: +54 9 11 ..." class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition">
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-slate-300 mb-1">Detalles de tu idea o consulta</label>
-              <textarea id="form-msg" rows="4" required placeholder="Cu&eacute;ntanos brevemente qu&eacute; necesitas para tu sitio o sistema..." class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition"></textarea>
+              <label class="block text-xs font-mono text-slate-300 mb-1">Descripción del Requerimiento / Alcance</label>
+              <textarea id="form-msg" rows="4" required placeholder="Describe los objetivos de tu empresa, tipo de sistema o fecha límite prevista..." class="w-full bg-[#07090f] border border-synth-border focus:border-synth-wave rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition"></textarea>
             </div>
 
             <div class="pt-2 flex flex-col sm:flex-row gap-3">
@@ -641,71 +764,99 @@
     </div>
   </section>
 
-  <!-- Seccion FAQ -->
+  <!-- Sección FAQ -->
   <section id="faq" class="relative z-10 py-16 bg-[#090d14] border-t border-synth-border">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <div class="text-synth-gold font-mono text-xs uppercase tracking-widest">// RESOLUCI&Oacute;N DE DUDAS</div>
-        <h2 class="text-2xl sm:text-3xl font-tech font-bold text-white mt-1">Preguntas Frecuentes</h2>
+        <div class="text-synth-gold font-mono text-xs uppercase tracking-widest">// PREGUNTAS FRECUENTES</div>
+        <h2 class="text-2xl sm:text-3xl font-tech font-bold text-white mt-1">Aspectos Operativos & Comerciales</h2>
       </div>
 
       <div class="space-y-4">
         <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
           <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
-            &iquest;D&oacute;nde pueden alojar mis p&aacute;ginas web y sistemas?
+            ¿Cómo se gestiona la propiedad intelectual y el código fuente?
             <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
           </summary>
           <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
-            Trabajamos con total flexibilidad: configuramos GitHub Pages con SSL gratuito para costo cero de mantenimiento, o desplegamos en servidores Cloud (AWS, DigitalOcean, Vercel), VPS o hosting tradicional (cPanel).
+            Una vez finalizado y liquidado el proyecto, se transfiere la totalidad de los derechos y accesos al repositorio privado del cliente. No existe dependencia cautiva.
           </p>
         </details>
 
         <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
           <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
-            &iquest;Cu&aacute;ndo conviene elegir WordPress y cu&aacute;ndo Joomla?
+            ¿En qué entornos de nube pueden desplegar las soluciones?
             <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
           </summary>
           <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
-            WordPress es &oacute;ptimo para p&aacute;ginas corporativas din&aacute;micas y portafolios. Joomla es ideal para tiendas virtuales con cat&aacute;logos complejos y miles de productos.
+            Soportamos despliegues en servidores estáticos (GitHub Pages, Cloudflare Pages), proveedores Cloud (AWS, DigitalOcean, Vercel) o servidores dedicados/cPanel provistos por la empresa.
           </p>
         </details>
 
         <details class="group bg-synth-card border border-synth-border rounded-xl p-5 cursor-pointer">
           <summary class="font-tech text-sm font-semibold text-white flex justify-between items-center list-none">
-            &iquest;C&oacute;mo se definen los tiempos de entrega y pagos?
+            ¿Ofrecen acuerdos de nivel de servicio (SLA) y soporte post-lanzamiento?
             <i data-lucide="chevron-down" class="w-4 h-4 text-synth-wave group-open:rotate-180 transition"></i>
           </summary>
           <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
-            Fijamos un cronograma por etapas (anticipo y saldo contra entrega en producci&oacute;n). Las landing pages simples suelen completarse en pocos d&iacute;as.
+            Sí. Proveemos planes de mantenimiento preventivo, actualizaciones de seguridad, copias de respaldo continuas y monitoreo de disponibilidad para sistemas en producción.
           </p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="relative z-10 bg-[#05070a] border-t border-synth-border py-12 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8">
-          <svg viewBox="0 0 160 140" class="w-full h-full">
-            <ellipse cx="80" cy="55" rx="54" ry="34" fill="none" stroke="#4ef2bb" stroke-width="4" opacity="0.6"/>
-            <path d="M 28 42 C 40 100, 52 100, 64 42 C 76 100, 88 100, 100 42 C 112 100, 124 100, 134 42" fill="none" stroke="#ffd159" stroke-width="8"/>
-          </svg>
+  <!-- Footer Institucional Completo -->
+  <footer class="relative z-10 bg-[#05070a] border-t border-synth-border pt-16 pb-12 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8">
+              <svg viewBox="0 0 160 140" class="w-full h-full">
+                <ellipse cx="80" cy="55" rx="54" ry="34" fill="none" stroke="#4ef2bb" stroke-width="4" opacity="0.6"/>
+                <path d="M 28 42 C 40 100, 52 100, 64 42 C 76 100, 88 100, 100 42 C 112 100, 124 100, 134 42" fill="none" stroke="#ffd159" stroke-width="8"/>
+              </svg>
+            </div>
+            <span class="font-tech font-bold text-white text-base">NEW WAVE ELECTRONIC LAB</span>
+          </div>
+          <p class="text-slate-400 text-xs font-mono leading-relaxed max-w-sm">
+            Laboratorio de desarrollo digital e ingeniería de software enfocado en alto rendimiento, código eficiente y escalabilidad.
+          </p>
         </div>
-        <span class="font-tech font-bold text-white text-sm">NEW WAVE // ELECTRONIC LAB</span>
+
+        <div>
+          <h5 class="text-white font-tech text-xs tracking-wider uppercase mb-4">Navegación</h5>
+          <ul class="space-y-2 text-xs font-mono text-slate-400">
+            <li><a href="#empresa" class="hover:text-synth-wave transition">Empresa</a></li>
+            <li><a href="#servicios" class="hover:text-synth-wave transition">Soluciones</a></li>
+            <li><a href="#cms" class="hover:text-synth-wave transition">CMS & E-Commerce</a></li>
+            <li><a href="#metodologia" class="hover:text-synth-wave transition">Metodología</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-tech text-xs tracking-wider uppercase mb-4">Contacto Directo</h5>
+          <ul class="space-y-2 text-xs font-mono text-slate-400">
+            <li><a href="https://wa.me/5491164439517" target="_blank" class="hover:text-synth-wave transition">+54 9 11 6443-9517</a></li>
+            <li><a href="#contacto" class="hover:text-synth-gold transition">Formulario de Contacto</a></li>
+            <li class="text-slate-500">Buenos Aires, Argentina</li>
+          </ul>
+        </div>
       </div>
-      <div class="font-mono text-xs text-slate-500">
-        &copy; 2026 New Wave Electronic Lab. Todos los derechos reservados.
-      </div>
-      <div class="flex items-center gap-6 font-mono text-xs text-slate-400">
-        <a href="https://wa.me/5491164439517" target="_blank" class="hover:text-synth-wave transition">WhatsApp</a>
-        <a href="#contacto" class="hover:text-synth-gold transition">Contacto</a>
+
+      <div class="pt-8 border-t border-synth-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 text-center sm:text-left">
+        <div>&copy; 2026 New Wave Electronic Lab. Todos los derechos reservados.</div>
+        <div class="flex gap-4">
+          <span class="text-synth-wave">Ingeniería & Software</span>
+          <span>•</span>
+          <span class="text-synth-gold">Innovación Continua</span>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Boton Flotante Permanente de WhatsApp -->
+  <!-- Botón Flotante de WhatsApp -->
   <div class="fixed bottom-6 right-6 z-50">
     <div class="relative group">
       <div class="absolute -inset-1 rounded-full bg-emerald-500 opacity-60 blur-md animate-ping-slow"></div>
@@ -727,13 +878,13 @@
     const summaryFeatures = document.getElementById('summary-features');
     const sendWhatsappBtn = document.getElementById('send-whatsapp-quote');
 
-    let selectedProject = "Landing Page / Sitio Web";
+    let selectedProject = "Portal Web Corporativo";
 
     function updateSummary() {
       summaryType.innerText = selectedProject;
       const selected = [];
       featureCheckboxes.forEach(cb => { if(cb.checked) selected.push(cb.value); });
-      summaryFeatures.innerText = selected.length > 0 ? "Adicionales: " + selected.join(", ") : "Sin adicionales seleccionados.";
+      summaryFeatures.innerText = selected.length > 0 ? "Módulos: " + selected.join(", ") : "Sin módulos adicionales seleccionados.";
     }
 
     projectCards.forEach(card => {
@@ -774,45 +925,45 @@
       const selected = [];
       featureCheckboxes.forEach(cb => { if(cb.checked) selected.push("- " + cb.value); });
 
-      let text = "¡Hola New Wave Electronic Lab! Deseo solicitar un presupuesto personalizado:\n\n";
-      text += "*Tipo de Proyecto:* " + selectedProject + "\n";
+      let text = "¡Hola New Wave Electronic Lab! Deseo solicitar una propuesta corporativa personalizada:\n\n";
+      text += "*Tipo de Solución:* " + selectedProject + "\n";
       if(selected.length > 0) {
-        text += "*Requerimientos:*\n" + selected.join("\n") + "\n\n";
+        text += "*Módulos / Especificaciones:*\n" + selected.join("\n") + "\n\n";
       }
-      text += "¿Podrian asesorarme con los pasos y tiempos? ¡Gracias!";
+      text += "¿Podrían indicarme los pasos y coordinar una evaluación técnica? ¡Gracias!";
 
       window.open("https://wa.me/5491164439517?text=" + encodeURIComponent(text), "_blank");
     });
 
-    // Enviar por WhatsApp desde el formulario
+    // Enviar formulario por WhatsApp
     document.getElementById('btn-submit-wa').addEventListener('click', () => {
       const name = document.getElementById('form-name').value.trim();
       const phone = document.getElementById('form-phone').value.trim();
       const msg = document.getElementById('form-msg').value.trim();
 
       if(!name || !msg) {
-        alert("Por favor completa tu nombre y el mensaje de consulta.");
+        alert("Por favor completa tu nombre/empresa y los detalles del requerimiento.");
         return;
       }
 
-      const text = "Hola New Wave Electronic Lab, mi nombre es " + name + (phone ? " (Tel: " + phone + ")" : "") + ".\n\nConsulta: " + msg;
+      const text = "Hola New Wave Electronic Lab, mi nombre / empresa es " + name + (phone ? " (Tel: " + phone + ")" : "") + ".\n\nRequerimiento: " + msg;
       window.open("https://wa.me/5491164439517?text=" + encodeURIComponent(text), "_blank");
     });
 
-    // Enviar por Email abriendo el gestor sin exponer la direccion en pantalla
+    // Enviar formulario por Email
     document.getElementById('btn-submit-mail').addEventListener('click', () => {
       const name = document.getElementById('form-name').value.trim();
       const phone = document.getElementById('form-phone').value.trim();
       const msg = document.getElementById('form-msg').value.trim();
 
       if(!name || !msg) {
-        alert("Por favor completa tu nombre y el mensaje de consulta.");
+        alert("Por favor completa tu nombre/empresa y los detalles del requerimiento.");
         return;
       }
 
       const destino = "newwaveelectronicslab" + "@" + "gmail.com";
-      const asunto = "Consulta de Proyecto Web - " + name;
-      const cuerpo = "Nombre: " + name + "\nTelefono: " + phone + "\n\nDetalles de la consulta:\n" + msg;
+      const asunto = "Solicitud de Propuesta Corporativa - " + name;
+      const cuerpo = "Organización / Contacto: " + name + "\nTeléfono: " + phone + "\n\nRequerimiento:\n" + msg;
 
       window.location.href = "mailto:" + destino + "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpo);
     });
