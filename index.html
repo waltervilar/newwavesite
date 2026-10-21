@@ -954,11 +954,13 @@
         
         mError.classList.add('hidden');
         
-        // Mostrar vista previa
+        // Mostrar vista previa inmediata con código de barras simulado
         previewContainer.innerHTML = `
           <div class="p-4 rounded-lg border border-synth-wave/30 text-center">
             <div class="text-synth-wave text-sm mb-2">Generando...</div>
-            <div id="barcode-placeholder" class="min-h-[80px] bg-synth-card rounded-md p-4 border border-synth-border"></div>
+            <div id="barcode-placeholder" class="min-h-[80px] bg-synth-card rounded-md p-4 border border-synth-border text-center align-middle">
+              <span class="text-slate-500 text-xs">Ingresa un código...</span>
+            </div>
             <p class="text-slate-400 text-center mt-2">Código: <span class="font-tech font-bold text-white">${codigo}</span></p>
           </div>
         `;
@@ -973,24 +975,120 @@
           </div>
         `;
         
-        // Animación simple de "generación"
+        // Pequeño retraso para que el DOM se actualice, luego generar el código de barras
+        setTimeout(() => {
+          generarCodigoBarrasSimulado(codigo, formato);
+        }, 100);
+      };
+      
+      // Función para generar código de barras simulado
+      function generarCodigoBarrasSimulado(codigo, formato) {
         const placeholder = document.getElementById('barcode-placeholder');
+        if (!placeholder) return;
+        
+        // Limpiar y mostrar indicador de carga
         placeholder.innerHTML = '<div class="h-full w-full rounded-lg bg-synth-card border border-synth-wave/30 animate-ping"></div>';
         
+        // Simular generación después de 1.3 segundos
         setTimeout(() => {
-          placeholder.innerHTML = `
-            <svg width="100%" height="100%" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="100" fill="#080a0f"/>
-              <path d="M2 46h4l12 12h8l12-12h8l12 12h8l12-12h8l12 12h8l12-12h8l12 12h8l12-12h8" fill="none" stroke="var(--synth-wave)" stroke-width="2"/>
-            </svg>
+          // Crear representación visual del código de barras
+          const fmtName = formats[formato] || formato;
+          let barraHTML = '';
+          
+          // Generar barras simuladas basadas en el código
+          const codigoLimpio = codigo.replace(/[^0-9a-zA-Z]/g, '').substring(0, 20);
+          
+          barraHTML = `
+            <div class="p-3 rounded-md bg-synth-card border border-synth-wave/20">
+              <div class="text-xs text-slate-400 mb-1">${
+                fmtName === 'QR' ? 'Código QR' : fmtName === 'Code 128' ? 'Code 128' : fmtName
+              } generado</div>
+              <div class="h-2 rounded bg-gradient-to-r from-synth-wave to-synth-gold w-${codigoLimpio.length * 2 + 20}" style="width: ${codigoLimpio.length * 2 + 20}px; min-width: 100px; max-width: 300px;"></div>
+              <p class="text-center text-slate-400 text-xs mt-2">Código: ${codigo}</p>
+            </div>
           `;
-        }, 1500);
+          
+          placeholder.innerHTML = barraHTML;
+          
+          // Agregar botón de descargar después de generar
+          setTimeout(() => {
+            agregarBotonDescargar();
+          }, 100);
+        }, 1300);
+      }
+      
+      // Agregar botón de descargar/imprimir
+      function agregarBotonDescargar() {
+        const placeholder = document.getElementById('barcode-placeholder');
+        if (!placeholder) return;
+        
+        // Verificar si el botón ya existe
+        if (document.getElementById('btn-download-etiqueta')) return;
+        
+        const btnHTML = `
+          <div class="mt-4 text-center">
+            <button onclick="descargarEtiqueta()" class="py-2 rounded-xl font-tech font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Descargar Etiqueta</span>
+            </button>
+          </div>
+        `;
+        
+        // Insertar después del placeholder principal
+        const styleHTML = `
+          <style>
+            .download-btn-style {
+              margin-top: 12px;
+            }
+          </style>
+        `;
+        
+        placeholder.insertAdjacentHTML('afterend', btnHTML);
+      }
+      
+      // Función para descargar la etiqueta
+      window.descargarEtiqueta = function() {
+        const codigo = mCode.value.trim() || 'Sin código';
+        const formato = mFmt.querySelector('button.on')?.dataset.v || 'code128';
+        const descripcion = mDesc.value.trim() || '';
+        const copias = mQty.value || 1;
+        const mostrarTexto = mShowText.checked;
+        
+        // Crear contenido para descargar
+        const contenido = `
+NUEVA WAVE ELECTRONIC LAB
+========================
+Generador de Etiquetas New Wave
+
+────────────────────────
+FORMATO: ${formats[formato] || formato}
+CÓDIGO: ${codigo}
+${descripcion ? 'DESCRIPCIÓN: ' + descripcion : ''}
+COPIAS: ${copias}
+${mostrarTexto ? 'MOSTRAR CÓDIGO ESCRITO: Sí' : 'Mostrar código escrito: No'}
+────────────────────────
+Procesamiento 100% local
+Nueva Wave Electronics Lab
+8:00 - 20:00 hrs
+`
+        
+        // Crear blob y enlace de descarga
+        const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'etiqueta-newwave-' + Date.now() + '.txt';
+        a.click();
+        URL.revokeObjectURL(url);
       };
       
       // Cerrar vista previa
       window.cerrarVistaPrevia = function() {
         previewContainer.innerHTML = '<p class="text-slate-500 text-center py-12">Ingresa un código para ver la vista previa</p>';
         previewDetails.innerHTML = '--';
+        // Limpiar botón de descargar si existe
+        const btnExistente = document.getElementById('btn-download-etiqueta');
+        if (btnExistente) btnExistente.remove();
       };
     });
   </script>
