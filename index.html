@@ -8,6 +8,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Librerías para Códigos de Barras y QR reales -->
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <!-- Google Fonts: Orbitron & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,76 +210,106 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// NUEVA HERRAMIENTA</div>
+        <div class="text-synth-gold font-mono text-xs tracking-widest uppercase mb-2">// HERRAMIENTA OPERATIVA</div>
         <h2 class="text-3xl sm:text-4xl font-tech font-bold text-white">Generador de Etiquetas con Código de Barras y QR</h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-2">Crea e imprime etiquetas con códigos de barras y QR gratis desde tu navegador. Procesamiento 100% local.</p>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Genera, previsualiza e imprime etiquetas reales con lectura óptica garantizada.</p>
       </div>
       
-      <div class="grid lg:grid-cols-2 gap-8">
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
         
         <!-- Panel de Control -->
-        <div class="bg-synth-card rounded-3xl p-8 sm:p-10 border border-synth-border shadow-2xl">
-          <div class="space-y-6">
+        <div class="bg-synth-card rounded-3xl p-6 sm:p-8 border border-synth-border shadow-2xl">
+          <div class="space-y-5">
             
             <div>
-              <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-2">Código o Texto</label>
-              <input type="text" id="m-code" required class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-synth-wave transition" placeholder="Ej.: 00012345 o 7861234500017" />
-              <p class="text-xs text-slate-400 mt-2">Se admiten Code 128, EAN-13, QR, Code 39, ITF-14, DataMatrix, PDF417, Aztec, UPC-A, UPC-E, Codabar</p>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-2">Formato</label>
-                <div class="grid grid-cols-5 gap-2" id="m-fmt">
-                  <button type="button" data-v="code128" class="on rounded-xl py-2 text-sm font-tech font-bold text-black bg-synth-wave text-synth-gold hover:bg-[#3cd6a3] transition">Code 128</button>
-                  <button type="button" data-v="ean13" class="rounded-xl py-2 text-sm font-tech font-bold text-black bg-[#0b0e17] border border-synth-wave hover:bg-synth-wave transition">EAN-13</button>
-                  <button type="button" data-v="qr" class="rounded-xl py-2 text-sm font-tech font-bold text-black bg-[#0b0e17] border border-synth-wave hover:bg-synth-wave transition">QR</button>
-                  <button type="button" data-v="code39" class="rounded-xl py-2 text-sm font-tech font-bold text-black bg-[#0b0e17] border border-synth-wave hover:bg-synth-wave transition">Code 39</button>
-                  <button type="button" data-v="itf14" class="rounded-xl py-2 text-sm font-tech font-bold text-black bg-[#0b0e17] border border-synth-wave hover:bg-synth-wave transition">ITF-14</button>
-                </div>
-              </div>
-              <div>
-                <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-2">Copias</label>
-                <input type="number" id="m-qty" min="1" max="9999" step="1" value="1" class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-synth-wave transition" />
-              </div>
+              <label class="block font-tech text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Código o Contenido</label>
+              <input type="text" id="m-code" value="779123456789" class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-synth-wave transition" placeholder="Ingresa el código o texto" />
+              <p id="m-hint" class="text-xs text-slate-500 mt-1.5 font-mono">Formato Code 128: Acepta letras, números y símbolos.</p>
             </div>
             
             <div>
-              <label class="block font-tech text-sm font-bold text-slate-200 uppercase tracking-wider mb-2">Descripción (opcional)</label>
-              <textarea id="m-desc" rows="2" class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-synth-wave transition placeholder-slate-500" placeholder="Ej.: Cable HDMI 2.0 1,8 m"></textarea>
+              <label class="block font-tech text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Formato de Código</label>
+              <div class="grid grid-cols-3 sm:grid-cols-5 gap-2" id="m-fmt">
+                <button type="button" data-v="CODE128" class="fmt-btn py-2 text-xs font-tech font-bold rounded-lg transition border border-synth-wave bg-synth-wave text-black">Code 128</button>
+                <button type="button" data-v="EAN13" class="fmt-btn py-2 text-xs font-tech font-bold rounded-lg transition border border-synth-border bg-[#0b0e17] text-slate-300 hover:border-synth-wave">EAN-13</button>
+                <button type="button" data-v="QR" class="fmt-btn py-2 text-xs font-tech font-bold rounded-lg transition border border-synth-border bg-[#0b0e17] text-slate-300 hover:border-synth-wave">QR</button>
+                <button type="button" data-v="CODE39" class="fmt-btn py-2 text-xs font-tech font-bold rounded-lg transition border border-synth-border bg-[#0b0e17] text-slate-300 hover:border-synth-wave">Code 39</button>
+                <button type="button" data-v="ITF14" class="fmt-btn py-2 text-xs font-tech font-bold rounded-lg transition border border-synth-border bg-[#0b0e17] text-slate-300 hover:border-synth-wave">ITF-14</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-tech text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Copias</label>
+                <input type="number" id="m-qty" min="1" max="999" value="1" class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-synth-wave transition" />
+              </div>
+              <div>
+                <label class="block font-tech text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Visibilidad</label>
+                <label class="flex items-center gap-2 mt-2 text-xs text-slate-300 cursor-pointer">
+                  <input type="checkbox" id="m-showtext" checked class="w-4 h-4 accent-synth-wave rounded" />
+                  <span>Mostrar texto bajo el código</span>
+                </label>
+              </div>
             </div>
             
-            <div class="flex gap-3">
-              <label class="check"><input type="checkbox" id="m-showtext" checked class="accent-synth-gold" /> Mostrar código escrito</label>
+            <div>
+              <label class="block font-tech text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Título / Descripción (opcional)</label>
+              <input type="text" id="m-desc" placeholder="Ej.: Cable HDMI 2.0 1.8m" class="w-full bg-[#0b0e17] border border-synth-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-synth-wave transition" />
             </div>
-            
-            <p id="m-error" class="text-synth-wave text-sm mt-2 hidden"></p>
-            <button onclick="generarEtiquetaManual()" class="w-full py-3 rounded-xl font-tech font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2 mt-6">
-              <i data-lucide="magic-wand" class="w-4 h-4"></i>
-              <span>Generar Etiqueta</span>
+
+            <p id="m-error" class="text-rose-400 text-xs font-mono bg-rose-500/10 border border-rose-500/30 p-3 rounded-lg hidden"></p>
+
+            <button type="button" onclick="generarEtiquetaManual()" class="w-full py-3.5 rounded-xl font-tech font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2">
+              <i data-lucide="barcode" class="w-4 h-4"></i>
+              <span>GENERAR ETIQUETA</span>
             </button>
             
           </div>
         </div>
         
-        <!-- Vista Previa -->
-        <div class="bg-synth-card rounded-3xl p-8 sm:p-10 border border-synth-border shadow-2xl">
-          <div class="space-y-6">
-            <div class="flex items-center justify-between">
-              <h3 class="font-tech text-lg font-bold text-white">Vista Previa</h3>
-              <button onclick="cerrarVistaPrevia()" class="text-synth-wave text-sm hover:opacity-90 transition">Cerrar</button>
+        <!-- Vista Previa de Etiqueta Imprimible -->
+        <div class="bg-synth-card rounded-3xl p-6 sm:p-8 border border-synth-border shadow-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-synth-border">
+              <h3 class="font-tech text-sm font-bold text-white uppercase tracking-wider">Vista Previa de Etiqueta</h3>
+              <span class="text-xs font-mono text-synth-wave">Estilo Adhesivo (Fondo Blanco)</span>
             </div>
-            <div id="preview-container" class="min-h-[200px] bg-[#0b0e17] rounded-lg p-6 border border-synth-border">
-              <p class="text-slate-500 text-center py-12">Ingresa un código para ver la vista previa</p>
-            </div>
-            <div id="preview-details" class="text-xs text-slate-400">
-              --
+
+            <!-- Contenedor de la Etiqueta Física Simulada -->
+            <div class="flex justify-center items-center p-6 bg-[#06080d] rounded-2xl border border-synth-border min-h-[260px]">
+              <div id="printable-label" class="bg-white text-black p-5 rounded-lg shadow-xl w-full max-w-[320px] text-center transition">
+                <div id="label-title" class="font-bold text-sm text-gray-900 mb-2 truncate">Cable HDMI 2.0 1.8m</div>
+                
+                <div class="flex justify-center items-center my-2 min-h-[90px] overflow-hidden">
+                  <!-- SVG para códigos de barra -->
+                  <svg id="barcode-svg" class="max-w-full"></svg>
+                  <!-- Contenedor para código QR -->
+                  <div id="qrcode-box" class="flex justify-center hidden"></div>
+                </div>
+
+                <div id="label-footer" class="text-[10px] text-gray-500 font-mono mt-1 border-t border-gray-200 pt-1 flex justify-between">
+                  <span>NEW WAVE LAB</span>
+                  <span id="label-qty-badge">1 copia</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Acciones de Impresión y Descarga -->
+          <div class="grid grid-cols-2 gap-3 mt-6">
+            <button type="button" onclick="imprimirEtiqueta()" class="py-3 px-4 rounded-xl font-tech text-xs font-bold text-black bg-synth-gold hover:bg-yellow-400 transition flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,209,89,0.3)]">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>IMPRIMIR</span>
+            </button>
+            <button type="button" onclick="descargarEtiquetaPNG()" class="py-3 px-4 rounded-xl font-tech text-xs font-bold text-synth-wave border border-synth-wave/50 hover:bg-synth-wave/10 transition flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>GUARDAR IMAGEN</span>
+            </button>
+          </div>
+
         </div>
         
       </div>
-      
     </div>
   </section>
 
@@ -895,201 +928,182 @@
       window.location.href = "mailto:" + destino + "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpo);
     });
 
-    // Generadora de Etiquetas - New Wave Edition
-    document.addEventListener('DOMContentLoaded', function() {
-      const mCode = document.getElementById('m-code');
-      const mFmt = document.getElementById('m-fmt');
-      const mQty = document.getElementById('m-qty');
-      const mDesc = document.getElementById('m-desc');
-      const mShowText = document.getElementById('m-showtext');
-      const mError = document.getElementById('m-error');
-      const previewContainer = document.getElementById('preview-container');
-      const previewDetails = document.getElementById('preview-details');
-      
-      const formats = {
-        code128: 'Code 128',
-        ean13: 'EAN-13',
-        qr: 'QR',
-        code39: 'Code 39',
-        itf14: 'ITF-14'
-      };
-      
-      // Actualizar estilo del formato seleccionado
-      function actualizarFormato() {
-        const active = mFmt.querySelector('button.on');
-        if (active) {
-          const valor = active.dataset.v;
-          // Remover estilos anteriores
-          mFmt.querySelectorAll('button').forEach(b => b.classList.remove('on'));
-          // Aplicar nuevo
-          if (valor && formats[valor]) {
-            active.classList.add('on');
-            mCode.placeholder = `Ej.: ${valor === 'qr' ? 'Texto o URL' : valor === 'ean13' ? '13 dígitos' : 'Código'}`;
-          }
-        }
-      }
-      
-      // Event listeners para formatos
-      mFmt.addEventListener('click', function(e) {
-        const btn = e.target.closest('button');
-        if (btn) {
-          mFmt.querySelectorAll('button').forEach(b => b.classList.remove('on'));
-          btn.classList.add('on');
-        }
-      });
-      
-      // Generar etiqueta manual
-      window.generarEtiquetaManual = function() {
-        const codigo = mCode.value.trim();
-        const formato = mFmt.querySelector('button.on')?.dataset.v || 'code128';
-        const descripcion = mDesc.value.trim();
-        const copias = parseInt(mQty.value) || 1;
-        const mostrarTexto = mShowText.checked;
-        
-        if (!codigo) {
-          mError.textContent = 'Ingresa un código';
-          mError.classList.remove('hidden');
-          return;
-        }
-        
-        mError.classList.add('hidden');
-        
-        // Mostrar vista previa inmediata con código de barras simulado
-        previewContainer.innerHTML = `
-          <div class="p-4 rounded-lg border border-synth-wave/30 text-center">
-            <div class="text-synth-wave text-sm mb-2">Generando...</div>
-            <div id="barcode-placeholder" class="min-h-[80px] bg-synth-card rounded-md p-4 border border-synth-border text-center align-middle">
-              <span class="text-slate-500 text-xs">Ingresa un código...</span>
-            </div>
-            <p class="text-slate-400 text-center mt-2">Código: <span class="font-tech font-bold text-white">${codigo}</span></p>
-          </div>
-        `;
-        
-        previewDetails.innerHTML = `
-          <div class="space-y-2 text-sm">
-            <div>Formato: <span class="font-tech font-bold text-synth-wave">${formats[formato] || formato}</span></div>
-            <div>Código: <span class="font-tech font-bold text-white">${codigo}</span></div>
-            <div>Descripción: <span class="text-slate-400">${descripcion || '—'}</span></div>
-            <div>Copias: <span class="font-tech font-bold text-white">${copias}</span></div>
-            <div>Mostrar texto: <span class="${mostrarTexto ? 'text-synth-gold' : 'text-slate-400'}">${mostrarTexto ? 'Sí' : 'No'}</span></div>
-          </div>
-        `;
-        
-        // Pequeño retraso para que el DOM se actualice, luego generar el código de barras
-        setTimeout(() => {
-          generarCodigoBarrasSimulado(codigo, formato);
-        }, 100);
-      };
-      
-      // Función para generar código de barras simulado
-      function generarCodigoBarrasSimulado(codigo, formato) {
-        const placeholder = document.getElementById('barcode-placeholder');
-        if (!placeholder) return;
-        
-        // Limpiar y mostrar indicador de carga
-        placeholder.innerHTML = '<div class="h-full w-full rounded-lg bg-synth-card border border-synth-wave/30 animate-ping"></div>';
-        
-        // Simular generación después de 1.3 segundos
-        setTimeout(() => {
-          // Crear representación visual del código de barras
-          const fmtName = formats[formato] || formato;
-          let barraHTML = '';
-          
-          // Generar barras simuladas basadas en el código
-          const codigoLimpio = codigo.replace(/[^0-9a-zA-Z]/g, '').substring(0, 20);
-          
-          barraHTML = `
-            <div class="p-3 rounded-md bg-synth-card border border-synth-wave/20">
-              <div class="text-xs text-slate-400 mb-1">${
-                fmtName === 'QR' ? 'Código QR' : fmtName === 'Code 128' ? 'Code 128' : fmtName
-              } generado</div>
-              <div class="h-2 rounded bg-gradient-to-r from-synth-wave to-synth-gold w-${codigoLimpio.length * 2 + 20}" style="width: ${codigoLimpio.length * 2 + 20}px; min-width: 100px; max-width: 300px;"></div>
-              <p class="text-center text-slate-400 text-xs mt-2">Código: ${codigo}</p>
-            </div>
-          `;
-          
-          placeholder.innerHTML = barraHTML;
-          
-          // Agregar botón de descargar después de generar
-          setTimeout(() => {
-            agregarBotonDescargar();
-          }, 100);
-        }, 1300);
-      }
-      
-      // Agregar botón de descargar/imprimir
-      function agregarBotonDescargar() {
-        const placeholder = document.getElementById('barcode-placeholder');
-        if (!placeholder) return;
-        
-        // Verificar si el botón ya existe
-        if (document.getElementById('btn-download-etiqueta')) return;
-        
-        const btnHTML = `
-          <div class="mt-4 text-center">
-            <button onclick="descargarEtiqueta()" class="py-2 rounded-xl font-tech font-bold text-black bg-synth-wave hover:bg-[#3cd6a3] shadow-[0_0_20px_rgba(78,242,187,0.3)] transition flex items-center justify-center gap-2">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>Descargar Etiqueta</span>
-            </button>
-          </div>
-        `;
-        
-        // Insertar después del placeholder principal
-        const styleHTML = `
-          <style>
-            .download-btn-style {
-              margin-top: 12px;
-            }
-          </style>
-        `;
-        
-        placeholder.insertAdjacentHTML('afterend', btnHTML);
-      }
-      
-      // Función para descargar la etiqueta
-      window.descargarEtiqueta = function() {
-        const codigo = mCode.value.trim() || 'Sin código';
-        const formato = mFmt.querySelector('button.on')?.dataset.v || 'code128';
-        const descripcion = mDesc.value.trim() || '';
-        const copias = mQty.value || 1;
-        const mostrarTexto = mShowText.checked;
-        
-        // Crear contenido para descargar
-        const contenido = `
-NUEVA WAVE ELECTRONIC LAB
-========================
-Generador de Etiquetas New Wave
+    // --- GENERADOR DE ETIQUETAS NEW WAVE (MOTOR REAL) ---
+    let formatoSeleccionado = 'CODE128';
 
-────────────────────────
-FORMATO: ${formats[formato] || formato}
-CÓDIGO: ${codigo}
-${descripcion ? 'DESCRIPCIÓN: ' + descripcion : ''}
-COPIAS: ${copias}
-${mostrarTexto ? 'MOSTRAR CÓDIGO ESCRITO: Sí' : 'Mostrar código escrito: No'}
-────────────────────────
-Procesamiento 100% local
-Nueva Wave Electronics Lab
-8:00 - 20:00 hrs
-`
+    const hintFormatos = {
+      CODE128: 'Code 128: Formato universal para números, letras y símbolos.',
+      EAN13: 'EAN-13: Requiere exactamente 12 o 13 dígitos numéricos.',
+      QR: 'Código QR: Admite URLs completas, textos largos o identificadores.',
+      CODE39: 'Code 39: Letras mayúsculas (A-Z), números (0-9) y símbolos (- . $ / + % espacio).',
+      ITF14: 'ITF-14: Requiere exactamente 13 o 14 dígitos numéricos (cajas/bultos).'
+    };
+
+    // Cambio visual y de estado en los botones de formato
+    document.querySelectorAll('.fmt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.fmt-btn').forEach(b => {
+          b.classList.remove('bg-synth-wave', 'text-black', 'border-synth-wave');
+          b.classList.add('bg-[#0b0e17]', 'text-slate-300', 'border-synth-border');
+        });
+
+        btn.classList.add('bg-synth-wave', 'text-black', 'border-synth-wave');
+        btn.classList.remove('bg-[#0b0e17]', 'text-slate-300', 'border-synth-border');
+
+        formatoSeleccionado = btn.dataset.v;
+        document.getElementById('m-hint').innerText = hintFormatos[formatoSeleccionado] || '';
         
-        // Crear blob y enlace de descarga
-        const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'etiqueta-newwave-' + Date.now() + '.txt';
-        a.click();
-        URL.revokeObjectURL(url);
-      };
+        // Sugerencia de valor de prueba según el formato seleccionado
+        const codeInput = document.getElementById('m-code');
+        if (formatoSeleccionado === 'EAN13' && (!/^\d{12,13}$/.test(codeInput.value))) {
+          codeInput.value = '779123456789';
+        } else if (formatoSeleccionado === 'ITF14' && (!/^\d{13,14}$/.test(codeInput.value))) {
+          codeInput.value = '17791234567890';
+        } else if (formatoSeleccionado === 'QR' && codeInput.value.length < 5) {
+          codeInput.value = 'https://newwavelab.com';
+        }
+
+        generarEtiquetaManual();
+      });
+    });
+
+    window.generarEtiquetaManual = function() {
+      const codeVal = document.getElementById('m-code').value.trim();
+      const descVal = document.getElementById('m-desc').value.trim();
+      const qtyVal = document.getElementById('m-qty').value || '1';
+      const showText = document.getElementById('m-showtext').checked;
+      const errorEl = document.getElementById('m-error');
+      const svgEl = document.getElementById('barcode-svg');
+      const qrBox = document.getElementById('qrcode-box');
+      const titleEl = document.getElementById('label-title');
+      const badgeEl = document.getElementById('label-qty-badge');
+
+      if (!codeVal) {
+        errorEl.textContent = 'Por favor ingresa un código o texto para generar la etiqueta.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      errorEl.classList.add('hidden');
+      titleEl.textContent = descVal || 'ETIQUETA DE PRODUCTO';
+      badgeEl.textContent = `${qtyVal} ${parseInt(qtyVal) === 1 ? 'copia' : 'copias'}`;
+
+      // Si es Código QR
+      if (formatoSeleccionado === 'QR') {
+        svgEl.classList.add('hidden');
+        qrBox.classList.remove('hidden');
+        qrBox.innerHTML = '';
+
+        try {
+          new QRCode(qrBox, {
+            text: codeVal,
+            width: 110,
+            height: 110,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        } catch (e) {
+          errorEl.textContent = 'Error al generar el código QR: ' + e.message;
+          errorEl.classList.remove('hidden');
+        }
+        return;
+      }
+
+      // Si es Código de Barras (JsBarcode)
+      qrBox.classList.add('hidden');
+      svgEl.classList.remove('hidden');
+
+      try {
+        JsBarcode(svgEl, codeVal, {
+          format: formatoSeleccionado,
+          displayValue: showText,
+          fontSize: 14,
+          textMargin: 4,
+          font: 'monospace',
+          lineColor: '#000000',
+          background: '#ffffff',
+          height: 55,
+          margin: 5
+        });
+      } catch (err) {
+        errorEl.textContent = `Formato ${formatoSeleccionado} inválido: ${err.message}`;
+        errorEl.classList.remove('hidden');
+        svgEl.classList.add('hidden');
+      }
+    };
+
+    // Imprimir directamente la etiqueta en formato adhesivo
+    window.imprimirEtiqueta = function() {
+      const labelContent = document.getElementById('printable-label').outerHTML;
+      const win = window.open('', '_blank', 'width=600,height=500');
+      win.document.write(`
+        <html>
+          <head>
+            <title>Imprimir Etiqueta</title>
+            <script src="https://cdn.tailwindcss.com"><\/script>
+            <style>
+              @media print {
+                body { margin: 0; padding: 10px; display: flex; justify-content: center; align-items: flex-start; }
+                .no-print { display: none; }
+              }
+            </style>
+          </head>
+          <body class="bg-gray-100 p-8 flex flex-col items-center">
+            <div class="mb-4 no-print flex gap-3">
+              <button onclick="window.print()" style="padding: 8px 16px; background: #000; color: #fff; font-weight: bold; border-radius: 6px; cursor: pointer;">Confirmar Impresión</button>
+              <button onclick="window.close()" style="padding: 8px 16px; border: 1px solid #ccc; border-radius: 6px; cursor: pointer;">Cerrar</button>
+            </div>
+            <div>${labelContent}</div>
+            <script>
+              setTimeout(() => { window.print(); }, 400);
+            <\/script>
+          </body>
+        </html>
+      `);
+      win.document.close();
+    };
+
+    // Descargar etiqueta como imagen PNG
+    window.descargarEtiquetaPNG = function() {
+      const svg = document.getElementById('barcode-svg');
+      const qrImg = document.querySelector('#qrcode-box img');
       
-      // Cerrar vista previa
-      window.cerrarVistaPrevia = function() {
-        previewContainer.innerHTML = '<p class="text-slate-500 text-center py-12">Ingresa un código para ver la vista previa</p>';
-        previewDetails.innerHTML = '--';
-        // Limpiar botón de descargar si existe
-        const btnExistente = document.getElementById('btn-download-etiqueta');
-        if (btnExistente) btnExistente.remove();
-      };
+      if (formatoSeleccionado === 'QR' && qrImg) {
+        const a = document.createElement('a');
+        a.href = qrImg.src;
+        a.download = `etiqueta-qr-${Date.now()}.png`;
+        a.click();
+        return;
+      }
+
+      if (svg && !svg.classList.contains('hidden')) {
+        const xml = new XMLSerializer().serializeToString(svg);
+        const svg64 = btoa(unescape(encodeURIComponent(xml)));
+        const image64 = 'data:image/svg+xml;base64,' + svg64;
+
+        const img = new Image();
+        img.src = image64;
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          canvas.width = svg.clientWidth || 300;
+          canvas.height = svg.clientHeight || 100;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+
+          const a = document.createElement('a');
+          a.download = `etiqueta-barcode-${Date.now()}.png`;
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+        };
+      }
+    };
+
+    // Generar una etiqueta inicial al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      generarEtiquetaManual();
     });
   </script>
 </body>
